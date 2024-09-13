@@ -1,0 +1,97 @@
+{
+	// General CFG
+	"layer": "bottom",
+	"position": "top",
+	"height": 24,
+	//"width": auto,
+	"spacing": 0,
+
+	"mode": "dock",
+	"start_hidden": false,
+
+	"reload_style_on_change": false,
+
+	// Modules	
+	"modules-left": [
+		"network"
+	],
+	"modules-center": [
+		"cpu",
+		"temperature",
+		"memory"
+	],
+	"modules-right": [
+		"battery",
+		"wireplumber",
+		"clock#simpleclock"
+	],
+
+	// Module Configurations
+	"clock#simpleclock": {
+		"interval": 1,
+		"format": "{:%H:%M:%S}",
+		"tooltip-format": "{:%D}"
+	},
+
+	"battery": {
+		"interval": 1,
+		"states": {
+			"warning": 20,
+			"critical": 10,
+		},
+		"format": "{capacity}% {icon}",
+		"format-icons": ["", "", "", "", ""],
+		"tooltip": true,
+		"tooltip-format": "⚡ Drawing {power}W, {time} of battery life left.",
+		"tooltip-format-charging": "🔌 Drawing {power}W, {time} until full charge."
+	},
+
+	"wireplumber": {
+		"format": "{volume}% {icon}",
+		"format-muted": "Muted 🔇",
+		"format-icons": ["", "", ""]
+	},
+	"temperature": {
+		"hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+		"input-filename": "temp1_input",
+		"interval": 1,
+		"critical-threshold": 60,
+		"format": "{temperatureC}°C ❄️",
+		"format-critical": "{temperatureC}°C  🔥",
+		"tooltip": false
+	},
+	"cpu": {
+		"states": {
+			"idle": 10,
+			"a": 20,
+			"b": 30,
+			"c": 40,
+			"d": 50,
+			"e": 60,
+			"f": 70,
+			"max": 90
+		},
+		"interval": 1,
+		"format": " {usage}% {avg_frequency}GHz",
+		"tooltip": false
+	},
+
+	"memory": {
+		"interval": 1,
+		"format": "{avail}GiB Free ",
+		"tooltip-format": "{used}GiB Used"
+	},
+
+	"network": {
+		"interval": 1,
+		"format-wifi": "  {essid}",
+		"format-ethernet": "🔌 Ethernet",
+		"format-disconnected": "❌ Disconnected",
+		"tooltip-format": "🌐 {ipaddr}@{gwaddr}_{frequency}GHz ({signaldBm}dBM)\n{bandwidthDownBytes} ⬇ - {bandwidthUpBytes} ⬆",
+		"tooltip-format-ethernet": "🌐 {ipaddr}@{gwaddr}\n{bandwidthDownBytes} ⬇ - {bandwidthUpBytes} ⬆",
+		"tooltip-format-disconnected": "❌ Disconnected",
+		"on-click": "iwgtk",
+		"on-click-right": "exec foot /bin/bash /System/Enable_Wi-Fi.sh",
+		"on-click-middle": "exec foot /bin/bash /System/Kill_Wi-Fi.sh"
+	}
+}

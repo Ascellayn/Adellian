@@ -4,14 +4,14 @@ if [ $(whoami) != "root"]; then
     exit
 fi
 
-AdellianTitle = "Adellian - DEV_240920 (WAYLAND_DE)"
-InitialWarning = \
+AdellianTitle="Adellian - DEV_240920 (WAYLAND_DE)"
+InitialWarning=\
 "[!] WARNING [!]\n\
 This script does many changes to your current install of Debian. It is not advised to run this script on a non-clean install of Debian SID.\n\
 Please note that the way I use Linux is very odd, you shouldn't consider this script like a distribution.\n\
 \n\
 If you are willing to continue, press <OK> to start the script.\n"
-whiptail --msgbox --title "$AdellianTitle" "$InitialWarning"
+whiptail --msgbox --title "$AdellianTitle" "$InitialWarning" 25 80
 InstallMenu()
 
 :'

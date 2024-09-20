@@ -1,15 +1,21 @@
 #!/bin/bash
-clear
-echo "Adellian - DEV_240920 (WAYLAND_DE)"
-echo "[!] WARNING [!]"
-echo "This script does many changes to your current install of Debian. It is not advised to run this script on a non-clean install of Debian SID."
-echo "Please note that the way I use Linux is very odd, you shouldn't consider this script like a distribution;"
-echo ""
-read -p "If you are willing to continue, press enter to start the script." < /dev/tty
-echo ""
+if [ $(whoami) != "root"]; then
+    echo "You must be running this script as root, with no other users other than root on the system."
+    exit
+fi
+
+AdellianTitle = "Adellian - DEV_240920 (WAYLAND_DE)"
+InitialWarning = \
+"[!] WARNING [!]\n\
+This script does many changes to your current install of Debian. It is not advised to run this script on a non-clean install of Debian SID.\n\
+Please note that the way I use Linux is very odd, you shouldn't consider this script like a distribution.\n\
+\n\
+If you are willing to continue, press <OK> to start the script.\n"
+whiptail --msgbox --title "$AdellianTitle" "$InitialWarning"
 InstallMenu()
 
-# TBD: TUI Menu similar to Debian's expert install
+:'
+# TBD: TUI Menu similar to Debians expert install
 InstallMenu() {
     RootOnly()
 }
@@ -22,18 +28,18 @@ RootOnly() {
 Install_BaseSystem() {
     echo "Installing base system..."
     apt-get install --no-install-recommends -y \
-    htop ufw wget # i can't be fucked finishing this rn whatev, i dont remember all the packages i need damn it
+    htop ufw wget # i cant be fucked finishing this rn whatev, i dont remember all the packages i need damn it
 }
 
 Minimize_System() {
-    # These packages are getting removed regardless of what's selected
+    # These packages are getting removed regardless of whats selected
     echo "Minimizing the system..."
     apt-get purge -y \
     eject laptop-detect \
     vim-common vim-tiny \
     grub-common fdisk
-    # These packages will require confirmation by the user to delete them or not. (Right now they don't because I'm lazy)
-    # If it looks ridiculous that's because it is.
+    # These packages will require confirmation by the user to delete them or not. (Right now they dont because Im lazy)
+    # If it looks ridiculous thats because it is.
     apt-get purge -y os-prober
     apt-get purge -y iproute2
     apt-get purge -y iputils-ping
@@ -41,3 +47,4 @@ Minimize_System() {
     # Cleanup
     apt-get autoremove --purge -y
 }
+'

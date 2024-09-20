@@ -26,7 +26,7 @@ The current branch being worked on is: WAYLAND_DE
 ## X11_DE Screenshot here
 - X11_DE: ⚠️ this script is from ages ago, this shit is probably not a good idea but it works
   - This branch is what I'd use as a daily driver when Wayland is making my GPU die of cringe.
-  - Installs XFCE4 with the Fluent GTK Theme (builds it automatically).
+  - Installs XFCE4 with the Fluent GTK Theme (builds it automatically). -> note, it will in a future update, needa get out wayland_de out first tho
   - Light theme currently only
   - Terminal Emulator is XTERM.
  

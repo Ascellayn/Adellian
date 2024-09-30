@@ -30,10 +30,6 @@ The current branch being worked on is: WAYLAND_DE
   - Light theme currently only
   - Terminal Emulator is XTERM.
  
-## X11_VM Screenshot here
-- X11_VM: TBD
-  - This branch is what I'd use in a Hyper-V VM. It's really just X11_DE but with several things modified to be lighter and less pretty.
-
-## X11_SERVER Screenshot here
-- X11_SERVER: TBD
-  - oh no SGN security through obscurity leaked
+# [TBD NAME] Applications
+[TBD NAME] comes with several terminal applications aimed to replace partially several bloated GUI apps (ie, no offense I still like your app, Termius), here is the full list of mini applications made specifically for this collection of script.
+- [sshman](https://github.com/SiriusBYT/TBD_Name/tree/main/WAYLAND_DE/rootfs/System/Applications/adellian_sshman), a Python CLI tool to mount via sshfs, or simply connect to SSH servers, aimed to replace Termius. 

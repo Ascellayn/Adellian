@@ -30,7 +30,7 @@ label:hover {
 	margin: 0 6px 0 1px;
 }
 
-/*
+
 #battery {
 	animation-iteration-count: 1;
 	animation-timing-function: steps(60);
@@ -63,7 +63,7 @@ label:hover {
 		background-color: rgba(225,25,25,0.95);
 	}
 } 
-*/
+
 
 /* The fucking specifications says that transform is a thing yet well HA it doesn't work
 @keyframes SNDL-Shake {

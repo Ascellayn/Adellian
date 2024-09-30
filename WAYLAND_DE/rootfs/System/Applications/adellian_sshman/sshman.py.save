@@ -1,0 +1,80 @@
+import subprocess
+import json
+import os
+import time
+import math
+
+Application_Name = "Adellian SSH Connection Manager"
+Application_Desc = "A Python-based SSH tool to manage mounting or connecting to SSH Servers."
+Application_Vers = "v240929"
+
+
+class SSH:
+	def __init__(self, server):
+		self.name = server["name"]
+		self.address = server["address"]
+		self.port = server["port"]
+		self.user = server["user"]
+		self.sshkey = server["sshkey"]
+		self.remote_folder = server["remote_folder"]
+		self.mount_point = server["mount_point"]
+
+	def mount(self):
+		print(f"Mounting {self.address} to {self.mount_point} as {self.user}...")
+		cmd = f'/usr/bin/sshfs -oIdentityFile={self.sshkey} -p {self.port} {self.user}@{self.address}:{self.remote_folder} {self.mount_point}'
+		subprocess.run(cmd, shell=True)
+
+	def connect(self):
+		print(f"Connecting {self.address} to {self.mount_point} as {self.user}...")
+		cmd = f'/usr/bin/ssh -oIdentityFile={self.sshkey} -p {self.port} {self.user}@{self.address} {self.mount_point}'
+		subprocess.run(cmd, shell=True)
+
+	def ping(self):
+		print(f"Pinging {self.address}...")
+		cmd = f'/usr/bin/ping {self.address} -c 1 -W 1'
+		latency_init = time.monotonic()
+		result = subprocess.run(cmd, shell=True, capture_output=True)
+		if "100% packet loss" in str(result.stdout):
+			print(f"Failed to ping {self.name}!")
+			return False
+		else:
+			latency = math.ceil((time.monotonic() - latency_init)*1000)
+			print(f"Pinged successfully {self.name} in {latency}ms.")
+			return True
+
+def LoadJSON():
+	try:
+		with open("entries.json", "r", encoding="UTF-8") as Entries:
+			ServerJSON = json.load(Entries)
+	except:
+		print(f'"entries.json was not found, creating..."')
+		with open("entries.json", "w", encoding="UTF-8") as Entries:
+			Entries.write("{}")
+			ServerJSON = {}
+	return ServerJSON
+
+def ClassifyJSON():
+	Servers = []
+	print(f"\nSaved Servers:")
+	for cycle in ServerJSON.keys():
+		Servers.append(SSH(ServerJSON[cycle]))
+		print(f"{Servers[0].name} ({Servers[0].user})")
+	return Servers
+
+if __name__ == '__main__':
+	subprocess.run("clear")
+	print(f"{Application_Name} - {Application_Vers}")
+	print(f"{Application_Desc}")
+	print(f"")
+
+	# Fix the script running anywhere and thus not being in the correct folder
+	print(f"Fixing file path...")
+	fileloc = os.path.abspath(__file__)
+	apploc = os.path.dirname(fileloc)
+	os.chdir(apploc)
+
+	# Load the server entries and correctly put them individually in classes
+	print(f"Loading server entries...")
+	ServerJSON = LoadJSON()
+	Servers = ClassifyJSON()
+	Servers[0].ping()

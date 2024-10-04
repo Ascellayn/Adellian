@@ -6,9 +6,9 @@ import math
 
 Application_Name = "Adellian SSH Connection Manager"
 Application_Desc = "A Python-based SSH utility to manage mounting or connecting to SSH Servers."
-Application_Vers = "v240930"
+Application_Vers = "v241001"
 
-Debug_Force = False
+Debug_Force = True
 
 def log(Log, Debug):
 	if Debug == False or Debug_Force == True:
@@ -65,6 +65,7 @@ class SSH:
 
 
 def LoadJSON():
+	global ServerJSON
 	try:
 		with open("entries.json", "r", encoding="UTF-8") as Entries:
 			ServerJSON = json.load(Entries)
@@ -73,15 +74,14 @@ def LoadJSON():
 		with open("entries.json", "w", encoding="UTF-8") as Entries:
 			Entries.write("{}")
 			ServerJSON = {}
-	return ServerJSON
 
 def ClassifyJSON():
+	global Servers
 	Servers = []
 	print(f"\nSaved Servers:")
 	for cycle in ServerJSON.keys():
 		Servers.append(SSH(ServerJSON[cycle]))
 		print(f"{Servers[0].name} ({Servers[0].user})")
-	return Servers
 
 def ReachAll():
 	for cycle in Servers:
@@ -104,29 +104,57 @@ def CatchInput(text):
 
 """ Menus and user-controlled actions """
 
-def Menu_DeleteEntry():
+def Entry_Add():
 	nl()
-	log(f"Which server would you like to delete?",False)
-	id = -1 # Yes this is jank but I can't be fucked
-	for cycle in Servers:
-		id+=1
-		log(f"[{id}] | {cycle.name}: {cycle.user}@{cycle.address}:{cycle.port}",False)
+	nl()
+	log(f"Please enter the prompted server information.",False)
+	nl()
+	Entry = {}
+	Entry["name"] = input("Server Display Name: ")
+	Entry["address"] = input("Server Address: ")
+	Entry["port"] = input("Server Port: ")
+	Entry["user"] = input("User to log on as: ")
+	log(f"The following information requires ABSOLUTE paths!",False)
+	Entry["sshkey"] = input("Path of your SSH Key: ")
+	Entry["remote_folder"] = input("Path of the remote folder to mount: ")
+	Entry["mount_point"] = input("Path of the local mount point: ")
 	nl()
 
-	log(f"This function isn't complete yet, returning to the main menu.",False)
-	Menu_ServerList()
+	log(f'================================',False)
+	log(Entry["name"],False)
+	log(f'{Entry["user"]}@{Entry["address"]}:{Entry["port"]}',False)
+	log(f'Remote Folder = {Entry["remote_folder"]}',False)
+	log(f'Local Mount Point = {Entry["mount_point"]}',False)
+	log(f'SSH Key Location = {Entry["sshkey"]}',False)
+	log(f'================================',False)
 
-def Menu_AddServerEntry():
-	log(f"This function isn't complete yet, returning to the main menu.",False)
-	Menu_ServerList()
+	UIn = CatchInput("Is this information correct? (y/n): ")
+	match UIn:
+		case "Y":
+			CreationDate = time.ctime()
+			log(f"Reloading server entries...",False)
+			LoadJSON()
+
+			log(f"Writing new entry...",False)
+			ServerJSON[f"{CreationDate}"] = Entry
+			with open("entries.json", "w", encoding="UTF-8") as Entries:
+				Entries.write(json.dumps(ServerJSON, indent = 1))
+			ClassifyJSON()
+
+			log(f"Testing server reachability...",False)
+			ReachAll()
+			log(f"Added new entry!",False)
+		case "N":
+			log(f"Returning to the main menu...",False)
+	return
 
 def Menu_ServerAction(server):
 	nl()
 	log(f"Server Information:",False)
 	log(f"{server.name} ({server.latency})",False)
 	log(f"{server.user}@{server.address}:{server.port}",False)
-	log(f"Local Mount Point = {server.mount_point}",False)
 	log(f"Remote Folder = {server.remote_folder}",False)
+	log(f"Local Mount Point = {server.mount_point}",False)
 	log(f"SSH Key Location = {server.sshkey}",False)
 
 
@@ -136,6 +164,8 @@ def Menu_ServerAction(server):
 	log(f'[M] | Mount via SSHFS the remote folder "{server.remote_folder}"',False)
 	log(f'[U] | Unmount SSHFS',False)
 	nl()
+	log(f'[E] | Edit this entry',False)
+	log(f'[D] | Delete this entry',False)
 	log(f'[Q] | Return to the main menu',False)
 
 	UIn = CatchInput("Enter Choice: ")
@@ -146,6 +176,10 @@ def Menu_ServerAction(server):
 			server.mount()
 		case "U":
 			server.unmount()
+		case "E":
+			Entry_Edit(server)
+		case "D":
+			Entry_Delete(server)
 		case "Q":
 			Menu_ServerList()
 
@@ -158,23 +192,24 @@ def Menu_ServerList():
 		log(f"[{id}] | {cycle.name} ({cycle.user}) - [{cycle.latency}]",False)
 	nl()
 	log(f"[C] | Add new server entry",False)
-	log(f"[D] | Delete server entry",False)
 	log(f"[Q] | Quit SSHMan",False)
 
 	UIn = CatchInput("Enter Choice: ")
 	match UIn:
 		case "C":
-			Menu_AddServerEntry()
-		case "D":
-			Menu_DeleteEntry()
+			Entry_Add()
 		case "Q":
 			log(f"Quitting...",False)
 			nl()
 			exit()
-	if UIn < len(Servers): # Issue with strings, tbd fix
-		Menu_ServerAction(Servers[UIn])
-	else:
-		Menu_ServerList()
+	try: # Note: Try Band-aid fix.
+		if UIn < len(Servers): # Issue with strings, tbd fix
+			Menu_ServerAction(Servers[UIn])
+		else:
+			Menu_ServerList()
+	except:
+		DoNothing()
+	Menu_ServerList()
 
 if __name__ == '__main__':
 	subprocess.run("clear")
@@ -190,8 +225,8 @@ if __name__ == '__main__':
 
 	# Load the server entries and correctly put them individually in classes
 	log(f"Loading server entries...",False)
-	ServerJSON = LoadJSON()
-	Servers = ClassifyJSON()
+	LoadJSON()
+	ClassifyJSON()
 
 	log(f"Testing server reachability...",False)
 	ReachAll()

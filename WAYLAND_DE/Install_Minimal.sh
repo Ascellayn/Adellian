@@ -59,7 +59,7 @@ dconf load / < adellian_dconf.txt
 apt purge dconf-cli sassc
 apt autoremove --purge
 cd rootfs
-mv -v * /
+cp -R -v * /
 cd /tmp
 echo "Cleaning up..."
 rm -rf Fluent-gtk-theme

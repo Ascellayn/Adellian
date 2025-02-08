@@ -7,8 +7,8 @@ I FUCKIN' LOVE CSS BITCHEEEEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSS- flashcord ftw b
 }
 
 window#waybar {
-	background-color: rgba(0,0,0,0.8);
-	color: rgba(255,255,255,0.95);
+	background-color: rgba(4, 2, 4, 0.8); /* SNDL RW3: Bismuth/Flashcord Black */
+	color: rgba(254, 254, 255, 0.95); /* SNDL RW3: Sirius Light */
 
 	opacity: 1;
 }
@@ -23,14 +23,14 @@ label {
 }
 
 label:hover {
-	background-color: rgba(255,255,255,0.25);
+	background-color: rgba(254, 254, 255, 0.25); /* SNDL RW3: Sirius Light */
 }
 
 #clock {
 	margin: 0 6px 0 1px;
 }
 
-/*
+
 #battery {
 	animation-iteration-count: 1;
 	animation-timing-function: steps(60);
@@ -49,21 +49,21 @@ label:hover {
 }
 
 @keyframes Flash-Background_Green {
-	50% {
-		background-color: rgba(25,200,55,0.95);
+	50% { /* SNDL RW3: "Otogi Light" */
+		background-color: rgba(72, 239, 80, 0.95);
 	}
 } 
 @keyframes Flash-Background_Orange {
-	50% {
-		background-color: rgba(225,225,25,0.95);
+	50% { /* SNDL RW3: "Serina Light" */
+		background-color: rgba(238, 224, 50, 0.95);
 	}
 } 
 @keyframes Flash-Background_Red {
-	50% {
-		background-color: rgba(225,25,25,0.95);
+	50% { /* SNDL RW3: "Wakamo Light" */
+		background-color: rgba(223,15,31, 0.95);
 	}
 } 
-*/
+
 
 /* The fucking specifications says that transform is a thing yet well HA it doesn't work
 @keyframes SNDL-Shake {

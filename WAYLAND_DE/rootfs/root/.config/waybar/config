@@ -30,7 +30,7 @@
 	"clock#simpleclock": {
 		"interval": 1,
 		"format": "{:%H:%M:%S}",
-		"tooltip-format": "{:%D}"
+		"tooltip-format": "{:%d/%m/%Y}"
 	},
 
 	"battery": {
@@ -91,7 +91,7 @@
 		"tooltip-format-ethernet": "🌐 {ipaddr}@{gwaddr}\n{bandwidthDownBytes} ⬇ - {bandwidthUpBytes} ⬆",
 		"tooltip-format-disconnected": "❌ Disconnected",
 		"on-click": "iwgtk",
-		"on-click-right": "exec foot /bin/bash /System/Enable_Wi-Fi.sh",
-		"on-click-middle": "exec foot /bin/bash /System/Kill_Wi-Fi.sh"
+		"on-click-right": "exec foot /bin/bash /System/Library/Scripts/wifi_start.sh",
+		"on-click-middle": "exec foot /bin/bash /System/Library/Scripts/wifi_kill.sh"
 	}
 }

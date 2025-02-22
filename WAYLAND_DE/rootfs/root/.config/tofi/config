@@ -5,41 +5,47 @@ font-features				=	""
 font-variations				=	""
 hint-font				=	true
 text-color				=	#000000
+#^Does nothing
 
 # Prompt Text Settings
 prompt-text				=	"🔎 "
 prompt-padding				=	0
 
-prompt-color				=	#000000FF
+prompt-color				=	#FFFFFFff
 prompt-background			=	#00000000
 prompt-background-padding		=	0
 prompt-background-corner-radius		=	0
 
 # Search Placeholder Settings
 placeholder-text			=	"Type to search"
-placeholder-color			=	#FFFFFF20
+placeholder-color			=	#16081680
+#^ Ascellyan Black 50%
 placeholder-background			=	#00000000
 placeholder-background-padding		=	0
 placeholder-background-corner-radius	=	0
 
 # Input Text Settings
-input-color				=	#FFFFFFe6
+input-color				=	#FEFEFFff
+#^ Sirius White
 input-background			=	#00000000
 input-background-padding		=	0
 input-background-corner-radius		=	0
 
 # Results Settings
-default-result-color			=	#FFFFFF64
+default-result-color			=	#16081680
+#^ Ascellyan Black 50%
 default-result-background		=	#00000000
 default-result-background-padding	=	0
 default-result-background-corner-radius	=	0
 
 # Selected Settings
-selection-color				=	#FFFFFFff
+selection-color				=	#080408ff
+#^ Arellyan Black
 selection-background			=	#FFFFFF00
 selection-background-padding		=	0
 selection-background-corner-radius	=	0
-selection-match-color			=	#FFAAFFff
+selection-match-color			=	#FF42FFcc
+#^ Mika Darker 80%
 
 # Cursor Settings
 text-cursor-style			=	block
@@ -54,7 +60,8 @@ min-input-width = 0
 
 width = 100%
 height = 25
-background-color = #000000e6
+background-color = #F6F6FDe6
+# Sirius Normal 95%
 
 outline-width = 0
 outline-color = #00000000
@@ -77,7 +84,7 @@ exclusive-zone = -1
 
 margin-top = 0
 margin-bottom = 0
-margin-left = �0
+margin-left = 0
 margin-right = 0
 
 hide-cursor = false

@@ -73,4 +73,36 @@ echo "Installing non-essential stuff..."
 apt install --no-install-recommends         \
 code-insiders
 
+cd /tmp
+mkdir "Apple Fonts"
+mkdir "AppleDownload"
+cd "AppleDownload"
+
+echo "Downloading Apple SF Fonts..."
+wget https://devimages-cdn.apple.com/design/resources/download/SF-Compact.dmg
+wget https://devimages-cdn.apple.com/design/resources/download/SF-Mono.dmg
+wget https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg
+
+echo "Unpacking Fonts..."
+# For some reason, Extracting Payload doesn't work when in a one liner, so shits seperated.
+7z x SF-Compact.dmg -y && 7z x "SFCompactFonts/SF Compact Fonts.pkg" -y && 7z x "SFCompactFonts.pkg" -y
+7z x "Payload~" -y
+mv -v "Library/Fonts" "/tmp/Apple Fonts/SF-Compact"
+
+7z x SF-Pro.dmg -y && 7z x "SFProFonts/SF Pro Fonts.pkg" -y &&  7z x "SFProFonts.pkg" -y
+7z x "Payload~" -y
+mv -v "Library/Fonts" "/tmp/Apple Fonts/SF-Pro"
+
+7z x SF-Mono.dmg -y && 7z x "SFMonoFonts/SF Mono Fonts.pkg" -y &&  7z x "SFMonoFonts.pkg" -y
+7z x "Payload~" -y
+mv -v "Library/Fonts" "/tmp/Apple Fonts/SF-Mono"
+
+echo "Installing Fonts..."
+cd /tmp
+/bin/bash /System/Library/Applications/sudo.sh 'mv -v "Apple Fonts" /usr/share/fonts/'
+fc-cache
+
+echo "Cleaning up..."
+rm -rf /tmp/AppleDownload
+
 echo "Done"

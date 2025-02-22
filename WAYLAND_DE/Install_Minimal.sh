@@ -67,7 +67,7 @@ wireplumber pipewire                    \
 hyprland foot tofi waybar swaybg pavucontrol        \
 thunar firefox-nightly                  \
 librsvg2-common                     \
-fonts-unifont
+fonts-unifont fonts-font-awesome
 
 echo "Installing non-essential stuff..."
 # Non-essential Stuff

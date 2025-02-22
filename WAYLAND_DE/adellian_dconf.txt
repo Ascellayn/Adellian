@@ -8,6 +8,7 @@ font-name='SF Pro Display 10'
 gtk-theme='Fluent-round-pink-Light-compact'
 icon-theme='Fluent-pink-light'
 monospace-font-name='Fixedsys Excelsior 12'
+toolbar-icons-size='small'
 
 [org/gnome/desktop/privacy]
 remember-app-usage=false
@@ -22,6 +23,9 @@ max-accuracy-level='country'
 
 [org/gtk/gtk4/settings/file-chooser]
 show-hidden=true
+startup-mode='cwd'
 
 [org/gtk/settings/file-chooser]
 show-hidden=true
+sort-directories-first=true
+startup-mode='cwd'

@@ -1,0 +1,2 @@
+include = /System/Configuration/Tofi/Light.cfg
+#include = /System/Configuration/Tofi/Dark.cfg

@@ -1,10 +1,11 @@
 # General Font & Text Settings
-font					=	"/usr/share/fonts/Apple Fonts/SF-Compact/SF-Compact-Display.otf"
+font					=	/usr/share/fonts/FSEX302-alt.ttf
 font-size				=	12
 font-features				=	""
 font-variations				=	""
-hint-font				=	true
-text-color				=	#000000
+hint-font				=	false
+text-color				=	#000000FF
+# ^This doesn't do shit
 
 # Prompt Text Settings
 prompt-text				=	"🔎 "
@@ -39,7 +40,8 @@ selection-color				=	#FFFFFFff
 selection-background			=	#FFFFFF00
 selection-background-padding		=	0
 selection-background-corner-radius	=	0
-selection-match-color			=	#FFAAFFff
+selection-match-color			=	#D00E1DCC
+#^Wakamo Accent 80%
 
 # Cursor Settings
 text-cursor-style			=	block

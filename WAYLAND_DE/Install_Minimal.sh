@@ -67,6 +67,7 @@ wireplumber pipewire                    \
 hyprland foot tofi waybar swaybg pavucontrol        \
 thunar firefox-nightly                  \
 librsvg2-common                     \
+fonts-unifont
 
 echo "Installing non-essential stuff..."
 # Non-essential Stuff
@@ -97,7 +98,7 @@ mv -v "Library/Fonts" "/tmp/Apple Fonts/SF-Pro"
 7z x "Payload~" -y
 mv -v "Library/Fonts" "/tmp/Apple Fonts/SF-Mono"
 
-echo "Installing Fonts..."
+echo "Installing Apple Fonts..."
 cd /tmp
 /bin/bash /System/Library/Applications/sudo.sh 'mv -v "Apple Fonts" /usr/share/fonts/'
 fc-cache

@@ -1,3 +1,5 @@
+adduser ascellayn
+
 echo "Removing unused packages..."
 apt purge laptop-detect os-prober eject vim* fdisk --allow-remove-essential -y
 apt autoremove --purge -y
@@ -27,7 +29,8 @@ cd /tmp
 echo "Merging Adellian rootfs..."
 cd TBD_Name
 cd WAYLAND_DE
-dconf load / < adellian_dconf.txt
+dconf load / < "adellian_dconf - root.txt"
+su - ascellayn -c 'dconf load / < /tmp/TBD_Name/WAYLAND_DE/adellian_dconf.txt'
 apt purge dconf-cli sassc -y
 apt autoremove --purge -y
 cd rootfs
@@ -116,5 +119,10 @@ fc-cache
 
 echo "Cleaning up..."
 rm -rf /tmp/AppleDownload
+
+echo "Fixing Permissions..."
+chmod -R 7777 /System/
+chown -R -v ascellayn /home/ascellayn/
+chown -R -v ascellayn /System/
 
 echo "Done"

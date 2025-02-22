@@ -8,6 +8,7 @@ font-name='Fixedsys Excelsior 12'
 gtk-theme='Fluent-round-red-Dark-compact'
 icon-theme='Fluent-red-dark'
 monospace-font-name='Fixedsys Excelsior 12'
+toolbar-icons-size='small'
 
 [org/gnome/desktop/privacy]
 remember-app-usage=false
@@ -22,6 +23,9 @@ max-accuracy-level='country'
 
 [org/gtk/gtk4/settings/file-chooser]
 show-hidden=true
+startup-mode='cwd'
 
 [org/gtk/settings/file-chooser]
 show-hidden=true
+sort-directories-first=true
+startup-mode='cwd'

@@ -100,7 +100,18 @@ mv -v "Library/Fonts" "/tmp/Apple Fonts/SF-Mono"
 
 echo "Installing Apple Fonts..."
 cd /tmp
-/bin/bash /System/Library/Applications/sudo.sh 'mv -v "Apple Fonts" /usr/share/fonts/'
+/bin/bash /System/Library/Applications/sudo.sh 'mv -v "/tmp/Apple Fonts" /usr/share/fonts/'
+
+echo "Downloading Tweetmoji Font..."
+wget https://github.com/13rac1/twemoji-color-font/releases/download/v15.1.0/TwitterColorEmoji-SVGinOT-Linux-15.1.0.tar.gz
+echo "Unpacking Tweetmoji Font..."
+tar xf TwitterColorEmoji-SVGinOT-Linux-15.1.0.tar.gz
+echo "Installing Tweetmoji Font..."
+/bin/bash /System/Library/Applications/sudo.sh 'mv -v /tmp/TwitterColorEmoji-SVGinOT-Linux-15.1.0/TwitterColorEmoji-SVGinOT.ttf /usr/share/fonts/'
+echo "Cleaning up..."
+rm -rf TwitterColorEmoji-SVGinOT-Linux-15.1.0.tar.gz
+rm -rf TwitterColorEmoji-SVGinOT-Linux-15.1.0
+
 fc-cache
 
 echo "Cleaning up..."

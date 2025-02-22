@@ -1,12 +1,12 @@
 [org/gnome/desktop/interface]
-accent-color='pink'
+accent-color='red'
 clock-show-seconds=true
 cursor-blink-time=250
 cursor-theme='macOS-BigSur'
-document-font-name='SF Pro 10'
-font-name='SF Pro Display 10'
-gtk-theme='Fluent-round-pink-Light-compact'
-icon-theme='Fluent-pink-light'
+document-font-name='Fixedsys Excelsior 12'
+font-name='Fixedsys Excelsior 12'
+gtk-theme='Fluent-round-red-Dark-compact'
+icon-theme='Fluent-red-dark'
 monospace-font-name='Fixedsys Excelsior 12'
 
 [org/gnome/desktop/privacy]

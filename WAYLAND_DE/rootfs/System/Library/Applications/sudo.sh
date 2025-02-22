@@ -2,4 +2,6 @@
 
 # Homemade, bootleg sudo.
 
-su - -c "$1"
+Path=$(pwd)
+Arguments=$@
+su - -c "cd $Path && $Arguments"

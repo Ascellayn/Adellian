@@ -18,9 +18,11 @@ git clone https://github.com/siriusbyt/TBD_Name
 cd Fluent-gtk-theme
 echo "Building Fluent..."
 ./install.sh -t red -c dark -s compact -i debian -l --tweaks round blur noborder float
+./install.sh -t pink -c light -s compact -i debian -l --tweaks round blur noborder float
 cd /tmp
 cd Fluent-icon-theme
 ./install.sh red
+./install.sh pink
 cd /tmp
 echo "Merging Adellian rootfs..."
 cd TBD_Name

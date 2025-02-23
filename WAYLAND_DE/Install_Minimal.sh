@@ -35,7 +35,11 @@ echo "Merging Adellian rootfs..."
 cd TBD_Name
 cd WAYLAND_DE
 dconf load / < "adellian_dconf - root.txt"
-su - ascellayn -c 'dconf load / < /tmp/TBD_Name/WAYLAND_DE/adellian_dconf.txt'
+mv adellian_dconf.txt /tmp/
+chown ascellayn /tmp/adellian_dconf.txt
+chmod 7777 /tmp/adellian_dconf.txt
+su - ascellayn -c 'dconf load / < /tmp/adellian_dconf.txt'
+rm -rf /tmp/adellian_dconf.txt
 apt purge dconf-cli sassc -y
 apt autoremove --purge -y
 cd rootfs

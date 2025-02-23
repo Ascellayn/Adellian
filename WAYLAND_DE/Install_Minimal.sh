@@ -1,17 +1,22 @@
 adduser ascellayn
 
+# Note: We use /root/tmp instead of /tmp due to tmpfs size issues
+
 echo "Removing unused packages..."
 apt purge laptop-detect os-prober eject vim* fdisk --allow-remove-essential -y
 apt autoremove --purge -y
 
 echo "Installing Terminal Tools..."
 # Terminal Tools
-apt install --no-install-recommends -y     \
-htop wget git gpg tmux                  \
+apt install --no-install-recommends - \
+htop wget git gpg tmux \
 
 echo "Installing temporary dependencies..."
 apt install --no-install-recommends sassc dconf-cli -y
-cd /tmp
+
+mkdir /root/tmp
+cd /root/tmp
+
 echo "Downloading Fluent GTK & Icon Theme..."
 git clone https://github.com/vinceliuice/Fluent-gtk-theme
 git clone https://github.com/vinceliuice/Fluent-icon-theme
@@ -21,11 +26,11 @@ cd Fluent-gtk-theme
 echo "Building Fluent..."
 ./install.sh -t red -c dark -s compact -i debian -l --tweaks round blur noborder float
 ./install.sh -t pink -c light -s compact -i debian -l --tweaks round blur noborder float
-cd /tmp
+cd /root/tmp
 cd Fluent-icon-theme
 ./install.sh red
 ./install.sh pink
-cd /tmp
+cd /root/tmp
 echo "Merging Adellian rootfs..."
 cd TBD_Name
 cd WAYLAND_DE
@@ -35,17 +40,15 @@ apt purge dconf-cli sassc -y
 apt autoremove --purge -y
 cd rootfs
 cp -R -v * /
-cd /tmp
-echo "Cleaning up..."
-rm -rf Fluent-gtk-theme
-rm -rf Fluent-icon-theme
-rm -rf TBD_Name
+cd /root/tmp
 
 echo "Updating sources and migrating to Experimental..."
+rm -rf /etc/apt/sources.list
 apt update
 apt upgrade -y --no-install-recommends
 apt update -t experimental
 apt upgrade -y --no-install-recommends -t experimental
+apt install $(dpkg-query -f '${binary:Package}\n' -W) -t experimental --mark-auto
 
 echo "Adding Firefox Nightly Repository..."
 # Firefox Nightly
@@ -65,19 +68,18 @@ apt update
 
 echo "Installing the Desktop Environnement and its essential tools..."
 # Desktop Environement & Essential Tools
-apt install --no-install-recommends -y -t experimental         \
-wireplumber pipewire                    \
-hyprland foot tofi waybar swaybg pavucontrol        \
-thunar firefox-nightly                  \
-librsvg2-common                     \
+apt install --no-install-recommends -y -t experimental \
+wireplumber pipewire \
+hyprland foot tofi waybar swaybg pavucontrol \
+thunar firefox-nightly \
+librsvg2-common \
 fonts-unifont fonts-font-awesome
 
 echo "Installing non-essential stuff..."
 # Non-essential Stuff
-apt install --no-install-recommends         \
+apt install --no-install-recommends \
 code-insiders
 
-cd /tmp
 mkdir "Apple Fonts"
 mkdir "AppleDownload"
 cd "AppleDownload"
@@ -91,34 +93,30 @@ echo "Unpacking Fonts..."
 # For some reason, Extracting Payload doesn't work when in a one liner, so shits seperated.
 7z x SF-Compact.dmg -y && 7z x "SFCompactFonts/SF Compact Fonts.pkg" -y && 7z x "SFCompactFonts.pkg" -y
 7z x "Payload~" -y
-mv -v "Library/Fonts" "/tmp/Apple Fonts/SF-Compact"
+mv -v "Library/Fonts" "/root/tmp/Apple Fonts/SF-Compact"
 
 7z x SF-Pro.dmg -y && 7z x "SFProFonts/SF Pro Fonts.pkg" -y &&  7z x "SFProFonts.pkg" -y
 7z x "Payload~" -y
-mv -v "Library/Fonts" "/tmp/Apple Fonts/SF-Pro"
+mv -v "Library/Fonts" "/root/tmp/Apple Fonts/SF-Pro"
 
 7z x SF-Mono.dmg -y && 7z x "SFMonoFonts/SF Mono Fonts.pkg" -y &&  7z x "SFMonoFonts.pkg" -y
 7z x "Payload~" -y
-mv -v "Library/Fonts" "/tmp/Apple Fonts/SF-Mono"
+mv -v "Library/Fonts" "/root/tmp/Apple Fonts/SF-Mono"
 
 echo "Installing Apple Fonts..."
-cd /tmp
-/bin/bash /System/Library/Applications/sudo.sh 'mv -v "/tmp/Apple Fonts" /usr/share/fonts/'
+mv -v "/root/tmp/Apple Fonts" /usr/share/fonts/
 
 echo "Downloading Tweetmoji Font..."
 wget https://github.com/13rac1/twemoji-color-font/releases/download/v15.1.0/TwitterColorEmoji-SVGinOT-Linux-15.1.0.tar.gz
 echo "Unpacking Tweetmoji Font..."
 tar xf TwitterColorEmoji-SVGinOT-Linux-15.1.0.tar.gz
 echo "Installing Tweetmoji Font..."
-/bin/bash /System/Library/Applications/sudo.sh 'mv -v /tmp/TwitterColorEmoji-SVGinOT-Linux-15.1.0/TwitterColorEmoji-SVGinOT.ttf /usr/share/fonts/'
-echo "Cleaning up..."
-rm -rf TwitterColorEmoji-SVGinOT-Linux-15.1.0.tar.gz
-rm -rf TwitterColorEmoji-SVGinOT-Linux-15.1.0
+mv -v /root/tmp/TwitterColorEmoji-SVGinOT-Linux-15.1.0/TwitterColorEmoji-SVGinOT.ttf /usr/share/fonts/
 
 fc-cache
 
 echo "Cleaning up..."
-rm -rf /tmp/AppleDownload
+rm -rf /root/tmp
 
 echo "Fixing Permissions..."
 chmod -R 7777 /System/

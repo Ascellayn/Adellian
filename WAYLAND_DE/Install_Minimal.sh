@@ -8,8 +8,8 @@ apt autoremove --purge -y
 
 echo "Installing Terminal Tools..."
 # Terminal Tools
-apt install --no-install-recommends - \
-htop wget git gpg tmux \
+apt install --no-install-recommends -y \
+htop wget git gpg tmux 7zip \
 
 echo "Installing temporary dependencies..."
 apt install --no-install-recommends sassc dconf-cli -y

@@ -118,10 +118,9 @@ echo "Installing Tweetmoji Font..."
 mv -v /root/tmp/TwitterColorEmoji-SVGinOT-Linux-15.1.0/TwitterColorEmoji-SVGinOT.ttf /usr/share/fonts/
 
 echo "Downloading Fixedsys Excelsior Font..."
-wget https://raw.githubusercontent.com/foxoman/fixedsys/refs/heads/main/FSEX302.ttf
+wget https://raw.githubusercontent.com/foxoman/fixedsys/refs/heads/main/FSEX302-alt.ttf
 echo "Installing Fixedsys Excelsior Font..."
-mv FSEX302.ttf "Fixedsys Excelsior.ttf"
-mv -v "Fixedsys Excelsior.ttf" /usr/share/fonts/
+mv -v FSEX302-alt.ttf /usr/share/fonts/
 
 fc-cache
 

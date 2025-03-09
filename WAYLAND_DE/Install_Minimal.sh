@@ -34,12 +34,12 @@ cd /root/tmp
 echo "Merging Adellian rootfs..."
 cd TBD_Name
 cd WAYLAND_DE
-dconf load / < "adellian_dconf - root.txt"
-mv adellian_dconf.txt /tmp/
-chown ascellayn /tmp/adellian_dconf.txt
-chmod 7777 /tmp/adellian_dconf.txt
-su - ascellayn -c 'dconf load / < /tmp/adellian_dconf.txt'
-rm -rf /tmp/adellian_dconf.txt
+dconf load / < "Adellian_Dark.dconf"
+mv "Adellian_Light.dconf" /tmp/
+chown ascellayn /tmp/Adellian_Light.dconf
+chmod 7777 /tmp/Adellian_Light.dconf
+su - ascellayn -c 'dconf load / < /tmp/Adellian_Light.dconf'
+rm -rf /tmp/Adellian_Light.dconf
 apt purge dconf-cli sassc -y
 apt autoremove --purge -y
 cd rootfs
@@ -116,6 +116,12 @@ echo "Unpacking Tweetmoji Font..."
 tar xf TwitterColorEmoji-SVGinOT-Linux-15.1.0.tar.gz
 echo "Installing Tweetmoji Font..."
 mv -v /root/tmp/TwitterColorEmoji-SVGinOT-Linux-15.1.0/TwitterColorEmoji-SVGinOT.ttf /usr/share/fonts/
+
+echo "Downloading Fixedsys Excelsior Font..."
+wget https://raw.githubusercontent.com/foxoman/fixedsys/refs/heads/main/FSEX302.ttf
+echo "Installing Fixedsys Excelsior Font..."
+mv FSEX302.ttf "Fixedsys Excelsior.ttf"
+mv -v "Fixedsys Excelsior.ttf" /usr/share/fonts/
 
 fc-cache
 

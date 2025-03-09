@@ -4,4 +4,4 @@
 
 Path=$(pwd)
 Arguments=$@
-su - -c "cd $Path && $Arguments"
+su -m -p -c "cd $Path && $Arguments"

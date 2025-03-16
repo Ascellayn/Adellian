@@ -5,3 +5,4 @@ apt update
 apt install linux-headers-amd64 --no-install-recommends -y -t experimental
 apt install cuda-drivers -y # Not using -t experimental here because it usually fails for some reason
 rm -rf cuda-keyring_1.1-1_all.deb
+apt install nvidia-driver-libs:i386 -y # This is for steam

@@ -7,3 +7,4 @@ libgbm1:amd64 libgbm1:i386 \
 steam-libs-amd64:amd64 steam-libs-i386:i386 \
 xdg-desktop-portal xdg-desktop-portal-gtk \
 -t experimental --no-install-recommends -y
+rm -rf steam.deb

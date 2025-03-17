@@ -10,6 +10,6 @@ else
 	systemctl start iwd
 
 	echo -e "\e[34mRunning dhclient...\e[0m"
-	dhclient
+	dhcpcd
 	exit
 fi

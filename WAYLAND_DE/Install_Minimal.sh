@@ -77,7 +77,8 @@ wireplumber pipewire pipewire-audio \
 hyprland foot tofi waybar swaybg pavucontrol \
 thunar firefox-nightly \
 librsvg2-common \
-fonts-unifont fonts-font-awesome
+fonts-unifont fonts-font-awesome \
+xdg-desktop-portal-hyprland
 
 echo "Installing non-essential stuff..."
 # Non-essential Stuff

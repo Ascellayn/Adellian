@@ -124,6 +124,13 @@ mv -v FSEX302-alt.ttf /usr/share/fonts/
 
 fc-cache
 
+echo "Downloading MacOS XCursors..."
+wget https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz
+echo "Installing MacOS XCursors..."
+tar -xf macOS.tar.xz
+mv -v macOS /usr/share/icons/
+mv -v macOS-White /usr/share/icons/
+
 echo "Cleaning up..."
 rm -rf /root/tmp
 

@@ -38,7 +38,7 @@ dconf load / < "Adellian_Dark.dconf"
 mv "Adellian_Light.dconf" /tmp/
 chown ascellayn /tmp/Adellian_Light.dconf
 chmod 7777 /tmp/Adellian_Light.dconf
-su - ascellayn -c 'dconf load / < /tmp/Adellian_Light.dconf'
+su - ascellayn -c 'dconf load / < /root/tmp/Adellian_Light.dconf'
 rm -rf /tmp/Adellian_Light.dconf
 apt purge dconf-cli sassc -y
 apt autoremove --purge -y

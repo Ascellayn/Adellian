@@ -73,7 +73,7 @@ apt update
 echo "Installing the Desktop Environnement and its essential tools..."
 # Desktop Environement & Essential Tools
 apt install --no-install-recommends -y -t experimental \
-wireplumber pipewire \
+wireplumber pipewire pipewire-audio \
 hyprland foot tofi waybar swaybg pavucontrol \
 thunar firefox-nightly \
 librsvg2-common \

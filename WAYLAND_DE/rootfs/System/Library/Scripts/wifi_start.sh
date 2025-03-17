@@ -9,7 +9,7 @@ else
 	echo -e "\e[32mAuthentificated succesfully, now enabling wireless connectivity.\e[0m"
 	systemctl start iwd
 
-	echo -e "\e[34mRunning dhclient...\e[0m"
+	echo -e "\e[34mRunning dhcpcd...\e[0m"
 	dhcpcd
 	exit
 fi

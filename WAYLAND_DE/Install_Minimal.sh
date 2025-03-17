@@ -132,6 +132,8 @@ tar -xf macOS.tar.xz
 mv -v macOS /usr/share/icons/
 mv -v macOS-White /usr/share/icons/
 
+update-icon-caches /usr/share/icons
+
 echo "Cleaning up..."
 rm -rf /root/tmp
 

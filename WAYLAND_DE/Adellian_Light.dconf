@@ -2,7 +2,7 @@
 accent-color='pink'
 clock-show-seconds=true
 cursor-blink-time=250
-cursor-theme='macOS-BigSur'
+cursor-theme='macOS'
 document-font-name='SF Pro 10'
 font-name='SF Pro Display 10'
 gtk-theme='Fluent-round-pink-Light-compact'

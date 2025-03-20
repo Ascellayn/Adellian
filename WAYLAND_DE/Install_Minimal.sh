@@ -76,11 +76,15 @@ apt install --no-install-recommends -y -t experimental \
 wireplumber pipewire pipewire-audio \
 hyprland foot tofi waybar swaybg pavucontrol \
 thunar firefox-nightly \
-librsvg2-common \
 fonts-unifont fonts-font-awesome \
 xdg-desktop-portal-hyprland
 
-echo "Installing non-essential stuff..."
+echo "Installing non-essential stuff... (QoL and Utilities)"
+# Non-essential Stuff
+apt install --no-install-recommends -t experimental \
+tumbler librsvg2-common \
+
+echo "Installing non-essential stuff... (User Choice)"
 # Non-essential Stuff
 apt install --no-install-recommends \
 code-insiders

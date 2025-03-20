@@ -118,7 +118,7 @@ user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("dom.push.userAgentID", "1a86f721d10548c98011ba45a948ac3d");
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
-user_pref("dom.webaudio.enabled", false);
+//user_pref("dom.webaudio.enabled", false);
 user_pref("experiments.activeExperiment", false);
 user_pref("experiments.enabled", false);
 user_pref("experiments.manifest.uri", "");

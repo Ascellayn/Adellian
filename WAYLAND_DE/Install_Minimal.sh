@@ -83,6 +83,7 @@ echo "Installing non-essential stuff... (QoL and Utilities)"
 # Non-essential Stuff
 apt install --no-install-recommends -t experimental \
 tumbler librsvg2-common \
+jq grim slurp wf-recorder \
 
 echo "Installing non-essential stuff... (User Choice)"
 # Non-essential Stuff

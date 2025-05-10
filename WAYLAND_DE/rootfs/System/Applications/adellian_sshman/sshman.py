@@ -46,7 +46,7 @@ class SSH:
 
 	def connect(self):
 		log(f"Connecting to {self.address} as {self.user}...",False)
-		cmd = f'/usr/bin/ssh -oIdentityFile={self.sshkey} -p {self.port} {self.user}@{self.address}'
+		cmd = f'TERM=xterm-256color /usr/bin/ssh -oIdentityFile={self.sshkey} -p {self.port} {self.user}@{self.address}'
 		log(f'Running "{cmd}".',True)
 		subprocess.run(cmd, shell=True)
 

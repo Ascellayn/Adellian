@@ -6,7 +6,7 @@ import math
 
 Application_Name = "Adellian SSH Connection Manager"
 Application_Desc = "A Python-based SSH utility to manage mounting or connecting to SSH Servers."
-Application_Vers = "v241001"
+Application_Vers = "v250524"
 
 Debug_Force = True
 
@@ -81,7 +81,7 @@ def ClassifyJSON():
 	print(f"\nSaved Servers:")
 	for cycle in ServerJSON.keys():
 		Servers.append(SSH(ServerJSON[cycle]))
-		print(f"{Servers[0].name} ({Servers[0].user})")
+		print(f"{ServerJSON[cycle]['name']} ({ServerJSON[cycle]['user']})")
 
 def ReachAll():
 	for cycle in Servers:

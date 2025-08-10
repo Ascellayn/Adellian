@@ -45,8 +45,8 @@ printf "# Debian Unstable/Experimental - Adellian
 deb https://deb.debian.org/debian experimental main contrib non-free non-free-firmware
 deb https://deb.debian.org/debian sid main contrib non-free non-free-firmware
 
-deb-src https://deb.debian.org/debian experimental main contrib non-free non-free-firmware
-deb-src https://deb.debian.org/debian sid main contrib non-free non-free-firmware
+#deb-src https://deb.debian.org/debian experimental main contrib non-free non-free-firmware
+#deb-src https://deb.debian.org/debian sid main contrib non-free non-free-firmware
 " > /etc/apt/sources.list
 
 printf "# Debian Experimental Override - Adellian

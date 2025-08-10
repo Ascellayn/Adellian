@@ -24,7 +24,7 @@ SEPARATE
 {
 	apt-get purge --allow-remove-essential -y						\
 	eject fdisk lapt-getop-detect os-prober							\
-	vim-common vim-tiny											\
+	vim-common vim-tiny
 } &>> ${LOG_FILE}
 SEPARATE
 

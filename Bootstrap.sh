@@ -14,7 +14,7 @@ LOG() {
 }
 
 ENDL() {
-	printf "\N" >> ${LOG_FILE}
+	printf "\n" >> ${LOG_FILE}
 }
 
 mkdir -p /System/Logs/Adellian_Installer/

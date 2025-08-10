@@ -71,7 +71,6 @@ SEPARATE
 {
 	apt-get update
 	apt-get dist-upgrade -y --no-install-recommends
-	apt-get upgrade -y --no-install-recommends
 } &>> ${LOG_FILE}
 SEPARATE
 

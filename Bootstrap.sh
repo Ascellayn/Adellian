@@ -30,7 +30,7 @@ ENDL
 LOG "[Bootstrap] - Uninstalling Unused Packages...\n"
 SEPARATE
 {
-	apt-get purge --allow-remove-essential -y						\
+	apt purge --allow-remove-essential -y						\
 	eject fdisk laptop-detect os-prober							\
 	vim-common vim-tiny
 } &>> ${LOG_FILE}
@@ -70,9 +70,8 @@ LOG "[Bootstrap] - Upgrading to Debian Experimental...\n"
 LOG "WARNING: At the time of writing this, Debian Experimental currently has a critical bug related to keyboard input in the TTY.\nYou may need to manually run 'apt dist-upgrade' later.\n"
 SEPARATE
 {
-	apt-get update
-	apt-get upgrade -y --no-install-recommends
-	apt-get upgrade linux-image-amd64 -t experimental -y --no-install-recommends
+	apt update
+	apt upgrade -y --no-install-recommends
 } &>> ${LOG_FILE}
 #{
 #	apt-get update
@@ -84,7 +83,7 @@ SEPARATE
 ENDL
 LOG "[Bootstrap] - Installing Essential CLI Tools...\n"
 {
-	apt-get install -y --no-install-recommends	\
+	apt install -y --no-install-recommends	\
 	python3 wget git
 } &>> ${LOG_FILE}
 
@@ -93,7 +92,7 @@ ENDL
 LOG "[Bootstrap] - Purging Unused Packages...\n"
 SEPARATE
 {
-	apt-get autoremove --purge -y
+	apt autoremove --purge -y
 } &>> ${LOG_FILE}
 SEPARATE
 

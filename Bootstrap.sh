@@ -47,7 +47,7 @@ deb https://deb.debian.org/debian sid main contrib non-free non-free-firmware
 
 deb-src https://deb.debian.org/debian experimental main contrib non-free non-free-firmware
 deb-src https://deb.debian.org/debian sid main contrib non-free non-free-firmware
-" > /etc/apt/preferences.d/sources.list
+" > /etc/apt/sources.list
 
 printf "# Debian Experimental Override - Adellian
 # Both priorities are the same so that Debian can install Experimental Packages when available but still fallback to Unstable when needed.

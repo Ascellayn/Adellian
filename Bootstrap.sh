@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Install the necessary packages to then run the Adellian Installer 
 SEPARATOR=$(printf "%-$(tput cols)s\n" "" | tr " " "=")
 LOG_FILE="/System/Logs/Adellian_Installer/Bootstrap.log"

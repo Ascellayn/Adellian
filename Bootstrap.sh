@@ -72,6 +72,7 @@ SEPARATE
 {
 	apt-get update
 	apt-get upgrade -y --no-install-recommends
+	apt-get upgrade linux-image-amd64 -t experimental -y --no-install-recommends
 } &>> ${LOG_FILE}
 #{
 #	apt-get update

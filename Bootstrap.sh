@@ -39,7 +39,7 @@ deb https://deb.debian.org/debian sid main contrib non-free non-free-firmware
 
 deb-src https://deb.debian.org/debian experimental main contrib non-free non-free-firmware
 deb-src https://deb.debian.org/debian sid main contrib non-free non-free-firmware
-" > /etc/apt-get/preferences.d/sources.list
+" > /etc/apt/preferences.d/sources.list
 
 printf "# Debian Experimental Override - Adellian
 # Both priorities are the same so that Debian can install Experimental Packages when available but still fallback to Unstable when needed.
@@ -54,7 +54,7 @@ Pin-Priority: 900
 Package: *
 Pin: release a=unstable
 Pin-Priority: 900
-" > /etc/apt-get/preferences.d/adellian-experimental
+" > /etc/apt/preferences.d/adellian-experimental
 
 
 

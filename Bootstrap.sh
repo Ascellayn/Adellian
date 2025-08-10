@@ -21,7 +21,7 @@ LOG "\n[Bootstrap] - Configuring Root Directories...\n\n"
 mkdir -p /System/Library
 cd /System
 
-LOG "\n[Bootstrap] - Uninstalling Unused Packages...\n" >> ${LOG_FILE}
+LOG "\n[Bootstrap] - Uninstalling Unused Packages...\n"
 SEPARATE
 {
 	apt-get purge --allow-remove-essential -y						\
@@ -34,7 +34,7 @@ SEPARATE
 
 
 
-LOG "\n\n[Bootstrap] - Adding and configuring repostories...\n\n" >> ${LOG_FILE}
+LOG "\n\n[Bootstrap] - Adding and configuring repostories...\n\n"
 printf "# Debian Unstable/Experimental - Adellian
 deb https://deb.debian.org/debian experimental main contrib non-free non-free-firmware
 deb https://deb.debian.org/debian sid main contrib non-free non-free-firmware
@@ -60,7 +60,7 @@ Pin-Priority: 900
 
 
 
-LOG "[Bootstrap] - Upgrading to Debian Experimental...\n\n" >> ${LOG_FILE}
+LOG "[Bootstrap] - Upgrading to Debian Experimental...\n\n"
 SEPARATE
 {
 	apt-get update
@@ -69,20 +69,20 @@ SEPARATE
 } &>> ${LOG_FILE}
 SEPARATE
 
-LOG "\n[Bootstrap] - Installing Essential CLI Tools...\n\n" >> ${LOG_FILE}
+LOG "\n[Bootstrap] - Installing Essential CLI Tools...\n\n"
 {
 	apt-get install -y --no-install-recommends	\
 	python3 wget git
 } &>> ${LOG_FILE}
 
-LOG "\n[Bootstrap] - Purging Unused Packages...\n\n" >> ${LOG_FILE}
+LOG "\n[Bootstrap] - Purging Unused Packages...\n\n"
 SEPARATE
 {
 	apt-get autoremove --purge -y
 } &>> ${LOG_FILE}
 SEPARATE
 
-LOG "\n[Bootstrap] - Installing TSN Abstracter..." >> ${LOG_FILE}
+LOG "\n[Bootstrap] - Installing TSN Abstracter..."
 SEPARATE
 {
 	cd /System/Library
@@ -92,7 +92,7 @@ SEPARATE
 } &>> ${LOG_FILE}
 SEPARATE
 
-LOG "\n[Bootstrap] - Installing Adellian Setup Files..." >> ${LOG_FILE}
+LOG "\n[Bootstrap] - Installing Adellian Setup Files..."
 SEPARATE
 {
 	cd /System
@@ -100,4 +100,4 @@ SEPARATE
 } &>> ${LOG_FILE}
 SEPARATE
 
-LOG "\n\n\nScript finished. Please reboot your computer and then run 'python3 /System/Adellian/Installer.py' to continue installation."
+LOG "\n\n\nScript finished. Please reboot your computer and then run 'python3 /System/Adellian/Installer.py' to continue installation.\n"

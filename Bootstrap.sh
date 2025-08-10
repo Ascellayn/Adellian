@@ -6,16 +6,21 @@ SEPARATE() {
 	printf "${SEPARATOR}" >> ${LOG_FILE}
 }
 
+LOG() {
+	printf "$1"
+	printf "$1" >> ${LOG_FILE}
+}
+
 mkdir -p /System/Logs/Adellian_Installer/
 
+printf "Welcome to Adellian.\n"
 printf "Welcome to Adellian.\n" > ${LOG_FILE}
-printf "\n[Bootstrap] - Configuring Root Directories...\n\n" >> ${LOG_FILE}
+LOG "\n[Bootstrap] - Configuring Root Directories...\n\n"
 mkdir -p /System/Library
 cd /System
 
-printf "\n[Bootstrap] - Uninstalling Unused Packages...\n" >> ${LOG_FILE}
+LOG "\n[Bootstrap] - Uninstalling Unused Packages...\n" >> ${LOG_FILE}
 SEPARATE
-printf
 {
 	apt-get purge --allow-remove-essential -y						\
 	eject fdisk lapt-getop-detect os-prober							\
@@ -27,7 +32,7 @@ SEPARATE
 
 
 
-printf "\n\n[Bootstrap] - Adding and configuring repostories...\n\n" >> ${LOG_FILE}
+LOG "\n\n[Bootstrap] - Adding and configuring repostories...\n\n" >> ${LOG_FILE}
 printf "# Debian Unstable/Experimental - Adellian
 deb https://deb.debian.org/debian experimental main contrib non-free non-free-firmware
 deb https://deb.debian.org/debian sid main contrib non-free non-free-firmware
@@ -53,7 +58,7 @@ Pin-Priority: 900
 
 
 
-printf "[Bootstrap] - Upgrading to Debian Experimental...\n\n" >> ${LOG_FILE}
+LOG "[Bootstrap] - Upgrading to Debian Experimental...\n\n" >> ${LOG_FILE}
 SEPARATE
 {
 	apt-get update
@@ -61,20 +66,21 @@ SEPARATE
 	apt-get upgrade -y --no-install-recommends
 } &>> ${LOG_FILE}
 SEPARATE
-printf "\n[Bootstrap] - Installing Essential CLI Tools...\n\n" >> ${LOG_FILE}
+
+LOG "\n[Bootstrap] - Installing Essential CLI Tools...\n\n" >> ${LOG_FILE}
 {
 	apt-get install -y --no-install-recommends	\
 	python3 wget git
 } &>> ${LOG_FILE}
 
-printf "\n[Bootstrap] - Purging Unused Packages...\n\n" >> ${LOG_FILE}
+LOG "\n[Bootstrap] - Purging Unused Packages...\n\n" >> ${LOG_FILE}
 SEPARATE
 {
 	apt-get autoremove --purge -y
 } &>> ${LOG_FILE}
 SEPARATE
 
-printf "\n[Bootstrap] - Installing TSN Abstracter..." >> ${LOG_FILE}
+LOG "\n[Bootstrap] - Installing TSN Abstracter..." >> ${LOG_FILE}
 SEPARATE
 {
 	cd /System/Library
@@ -83,7 +89,8 @@ SEPARATE
 	printf "\n# Adellian Bootstrap - TSN Abstracter Installation\nexport PYTHONPATH=/System/Library/TSN_Abstracter:$\n" >> /root/.bashrc
 } &>> ${LOG_FILE}
 SEPARATE
-printf "\n[Bootstrap] - Installing Adellian Setup Files..." >> ${LOG_FILE}
+
+LOG "\n[Bootstrap] - Installing Adellian Setup Files..." >> ${LOG_FILE}
 SEPARATE
 {
 	cd /System
@@ -91,4 +98,4 @@ SEPARATE
 } &>> ${LOG_FILE}
 SEPARATE
 
-printf "\n\n\nScript finished. Please reboot your computer and then run 'python3 /System/Adellian/Installer.py' to continue installation."
+LOG "\n\n\nScript finished. Please reboot your computer and then run 'python3 /System/Adellian/Installer.py' to continue installation."

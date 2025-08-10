@@ -67,7 +67,7 @@ Pin-Priority: 900
 
 ENDL
 LOG "[Bootstrap] - Upgrading to Debian Experimental...\n"
-LOG "WARNING: At the time of writing this, Debian Experimental currently has a critical bug related to keyboard input in the TTY. You may need to manually run 'apt dist-upgrade' later.\n"
+LOG "WARNING: At the time of writing this, Debian Experimental currently has a critical bug related to keyboard input in the TTY.\nYou may need to manually run 'apt dist-upgrade' later.\n"
 SEPARATE
 {
 	apt-get update

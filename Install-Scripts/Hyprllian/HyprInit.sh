@@ -2,7 +2,7 @@
 
 # Install and build the latest Hyprland Git
 SEPARATOR=$(printf "%-$(tput cols)s\n" "" | tr " " "=")
-LOG_FILE="/System/Logs/Adellian_Installer/Hyprland.log"
+LOG_FILE="/System/Logs/Adellian_Installer/HyprInit.log"
 
 SEPARATE() {
 	printf "${SEPARATOR}" >> ${LOG_FILE}

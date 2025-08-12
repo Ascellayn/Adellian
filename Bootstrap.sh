@@ -31,7 +31,7 @@ LOG "[Bootstrap] - Uninstalling Unused Packages...\n"
 SEPARATE
 {
 	apt purge --allow-remove-essential -y						\
-	eject fdisk laptop-detect os-prober							\
+	fdisk laptop-detect os-prober							\
 	vim-common vim-tiny
 } &>> ${LOG_FILE}
 SEPARATE

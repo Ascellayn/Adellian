@@ -121,4 +121,9 @@ SEPARATE
 } &>> ${LOG_FILE}
 SEPARATE
 
-LOG "\n\n\nScript finished. Please reboot your computer and then run 'python3 /System/Adellian/Installer/Setup.py' to continue installation.\n"
+cd ~
+printf "#!/bin/bash
+python3 /System/Adellian/Installer/Setup.py" > Adellian_Installer.sh
+chmod +x Adellian_Installer.sh
+
+LOG "\n\n\nScript finished. Please reboot your computer and then run './Adellian_Installer.sh' to continue installation.\n"

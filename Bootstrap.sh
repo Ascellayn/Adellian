@@ -121,4 +121,4 @@ SEPARATE
 } &>> ${LOG_FILE}
 SEPARATE
 
-LOG "\n\n\nScript finished. Please reboot your computer and then run 'python3 /System/Adellian/Installer.py' to continue installation.\n"
+LOG "\n\n\nScript finished. Please reboot your computer and then run 'python3 /System/Adellian/Installer/Setup.py' to continue installation.\n"

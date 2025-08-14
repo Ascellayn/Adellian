@@ -69,13 +69,18 @@ ENDL
 LOG "[Bootstrap] - Upgrading to Debian Experimental...\n"
 LOG "WARNING: At the time of writing this, Debian Experimental currently has a critical bug related to keyboard input in the TTY.\nYou may need to manually run 'apt dist-upgrade' later.\n"
 SEPARATE
+
+# We need this otherwise the upgrade may get interrupted by interactive prompts.
+export DEBIAN_FRONTEND=noninteractive
+export NEEDRESTART_MODE=a
+
 {
 	apt update
-	yes | apt upgrade -y --no-install-recommends
+	apt upgrade -y --no-install-recommends
 } &>> ${LOG_FILE}
 #{
 #	apt-get update
-#	yes | apt-get dist-upgrade -y --no-install-recommends
+#	apt-get dist-upgrade -y --no-install-recommends
 #} &>> ${LOG_FILE}
 SEPARATE
 

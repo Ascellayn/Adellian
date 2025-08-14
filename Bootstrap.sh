@@ -18,6 +18,7 @@ ENDL() {
 }
 
 mkdir -p /System/Logs/Adellian_Installer/
+mkdir -p /System/Adellian/
 
 printf "Welcome to Adellian.\n"
 printf "Welcome to Adellian.\n" > ${LOG_FILE}
@@ -121,8 +122,8 @@ ENDL
 LOG "[Bootstrap] - Installing Adellian Setup Files...\n"
 SEPARATE
 {
-	cd /System
-	git clone https://github.com/Ascellayn/Adellian
+	cd /System/Adellian
+	git clone https://github.com/Ascellayn/Adellian Installer
 } &>> ${LOG_FILE}
 SEPARATE
 

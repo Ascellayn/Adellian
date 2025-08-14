@@ -33,7 +33,8 @@ SEPARATE
 	libseat-dev libinput-dev libwayland-dev wayland-protocols libdrm-dev libgbm-dev libdisplay-info-dev hwdata									\
 	libzip-dev libcairo2-dev librsvg2-dev libtomlplusplus-dev																					\
 	libmagic-dev																																\
-	libxkbcommon-x11-dev libxcursor-dev libre2-dev libxcb-present-dev libxcb-icccm4-dev libxcb-composite0-dev libxcb-res0-dev libxcb-errors-dev
+	libxkbcommon-x11-dev libxcursor-dev libre2-dev libxcb-present-dev libxcb-icccm4-dev libxcb-composite0-dev libxcb-res0-dev libxcb-errors-dev	\
+	dbus-user-session
 } &>> ${LOG_FILE}
 # Package requirements in order, certain things might depend on things from installed dependencies up.
 
@@ -45,6 +46,7 @@ SEPARATE
 # libzip-dev libcairo2-dev librsvg2-dev libtomlplusplus-dev // hyprcursor
 # libmagic-dev // hyprgraphics
 # libxkbcommon-x11-dev libxcursor-dev libre2-dev libxcb-present-dev libxcb-icccm4-dev libxcb-composite0-dev libxcb-res0-dev libxcb-errors-dev // Hyprland (Phase 2)
+# dbus-user-session dconf-service // Hyprland (Phase 3)
 SEPARATE
 
 

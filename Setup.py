@@ -6,7 +6,7 @@ import shutil;
 def Shell_Run(Command: str) -> subprocess.CompletedProcess:
 	Process: subprocess.CompletedProcess = subprocess.run(Command, shell=True, stdout=subprocess.PIPE, text=True);
 	Log.Stateless(Process.stdout.replace("\n", ""));
-	Log.Debug(f"Process exited with code {Process.returncode} | STDOUT: {Process.stdout}");
+	Log.Debug(f"Process exited with code {Process.returncode}");
 	return Process;
 
 Adellian_Logo: str = \

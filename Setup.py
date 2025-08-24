@@ -45,7 +45,7 @@ def DownloadRepo_RootFS() -> None:
 # RootFS Installers
 def Install_RootFS(Branch: str) -> None:
 	Log.Info(f"Installing Adellian's {Branch} RootFS...");
-	Process: subprocess.CompletedProcess = Shell_Run(f"cp -R -v /System/Adellian/RootFS/{Branch}_RootFS /");
+	Process: subprocess.CompletedProcess = Shell_Run(f"cp -R -v /System/Adellian/RootFS/{Branch}_RootFS/* /");
 	if (Process.returncode == 0): Log.Fetch_ALog().OK(); return;
 
 	Log.Fetch_ALog().ERROR(f"Process exited with code {Process.returncode}");

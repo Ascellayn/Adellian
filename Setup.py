@@ -60,10 +60,11 @@ def Bootstrap() -> None:
 
 # Ignition
 if (__name__ == '__main__'):
-	Log.Delete(); TSN_Abstracter.Require_Version((3,3,0));
+	TSN_Abstracter.Require_Version((3,3,0));
 	Config.Logger.Print_Level = 15;
 	Config.Logger.Display_Date = False;
 	Config.Logger.File = True;
+	Log.Delete();
 
 	Log.Stateless(Adellian_Logo);
 	Log.Info("Adellian Installer v250824_DEV");

@@ -1,5 +1,7 @@
-# Adellian
-Adellian, Linux the Ascellayn way. A set of scripts to set up a Debian SID/Experimental environement that prioritizes performance and efficiency over ease of use.  
+![](https://github.com/Ascellayn/Adellian/blob/main/Ressources/AdellianBanner-256px.png?raw=true)  
+### Linux the Ascellayn way. A set of scripts to set up a Debian SID/Experimental environement that prioritizes performance and minimalism.  
+
+<br>
 
 ## This is currently incomplete, do NOT run any of the scripts unless you're stupid.
 This is a collection of Shell scripts destined to quickly set-up a Debian SID/Experimental Computer, whenever it's for daily drivers, as a secondary machine, or a server oriented environment.

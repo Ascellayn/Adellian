@@ -19,7 +19,7 @@ LOG "[Ignition] - Installing WGET...\n"
 LOG "[Ignition] - Downloading Adellian's Bootstrap Script...\n"
 {
 	wget "https://ascellayn.github.io/Adellian/Bootstrap.sh" -O Bootstrap.sh
-} &> /dev/null
+}
 
 chmod +x Bootstrap.sh # Make sure the fucker is executable
 LOG "\n\n\nScript finished. Run './Bootstrap.sh' to proceed with the installation.\n"

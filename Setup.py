@@ -20,5 +20,10 @@ Adellian_Logo: str = \
                         :-                                                                            
 """
 
-Log.Stateless(Adellian_Logo);
-Log.Info("Installer Script Test");
+if (__name__ == '__main__'):
+	Log.Clear(); TSN_Abstracter.Require_Version((3,3,0));
+	Config.Logger.Display_Date = False;
+	Config.Logger.File = True;
+
+	Log.Stateless(Adellian_Logo);
+	Log.Info("Adellian Installer v250824");

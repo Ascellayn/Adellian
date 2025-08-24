@@ -42,8 +42,20 @@ def DownloadRepo_RootFS() -> None:
 	Log.Critical(f"An error occurred while downloading crucial Adellian Files. The installer will now exit.\n[ERROR]: {Process.stdout}");
 	exit();
 
+# RootFS Installers
+def Install_RootFS(Branch: str) -> None:
+	Log.Info(f"Installing Adellian's {Branch} RootFS...");
+	Process: subprocess.CompletedProcess = Shell_Run(f"cp -R -v /System/Adellian/RootFS/{Branch}_RootFS /");
+	if (Process.returncode == 0): Log.Fetch_ALog().OK(); return;
+
+	Log.Fetch_ALog().ERROR(f"Process exited with code {Process.returncode}");
+	Log.Critical(f"An error occurred while installing the {Branch} Adellian RootFS. The installer will now exit.\n[ERROR]: {Process.stdout}");
+	exit();
+
+
 def Bootstrap() -> None:
 	DownloadRepo_RootFS();
+	Install_RootFS("Universal");
 
 
 # Ignition

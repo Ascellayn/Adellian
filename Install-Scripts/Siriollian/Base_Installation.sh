@@ -18,11 +18,11 @@ ENDL() {
 }
 
 cd /System/Library
-mkdir SirioTTY
-cd SirioTTY
+mkdir Siriollian
+cd Siriollian
 
 ENDL
-LOG "[SirioTTY] - Installing Base System...\n"
+LOG "[Siriollian] - Installing Base System...\n"
 SEPARATE
 {
 	apt install --no-install-recommends -y	\

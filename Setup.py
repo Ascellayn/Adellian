@@ -79,6 +79,13 @@ def Failed_Install() -> None:
 	exit();
 
 Steps_Current: int = 0;
+Steps_Total: int = 11;
+
+def Display_Step() -> str:
+	global Steps_Current;
+	Steps_Current +=1;
+	return f"[{Steps_Current}/{Steps_Total}]";
+
 def Adellian_Installer(Configuration: dict) -> None:
 	""" This installs Adellian according to the specified Dictionary.
 	Example dictionary:
@@ -91,9 +98,8 @@ def Adellian_Installer(Configuration: dict) -> None:
 		]
 	}"
 	"""
-	global Steps_Current;
-	Steps_Total: int = 11 + len(Configuration["Scripts"]);
-	def Display_Step() -> str: Steps_Current +=1; return f"[{Steps_Current}/{Steps_Total}]";
+	global Steps_Total;
+	Steps_Total += len(Configuration["Scripts"]);
 
 	Log.Warning("=== INSTALLING ADELLIAN ===");
 	Log.Info(f"{Display_Step()} Downloading the Adellian RootFS Repository...");

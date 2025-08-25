@@ -63,7 +63,14 @@ def Install_RootFS(Branch: str) -> None:
 def Bootstrap() -> None:
 	Log.Stateless(Adellian_Logo);
 	Log.Info("Adellian Installer v250824_DEV");
-	pass;
+	Shell_Run_Critical("adduser ascellayn");
+	Adellian_Installer({
+		"Branch": "Hyprllian",
+		"Username": "ascellayn",
+		"Scripts": [
+			"/System/Adellian/Installer/Install-Scripts/Hyprllian/HyprInit.sh"
+		]
+	});
 
 
 # Installation Process
@@ -71,6 +78,7 @@ def Failed_Install() -> None:
 	Log.Critical("Adellian failed to install properly. The installer will now exit.");
 	exit();
 
+Steps_Current: int = 0;
 def Adellian_Installer(Configuration: dict) -> None:
 	""" This installs Adellian according to the specified Dictionary.
 	Example dictionary:
@@ -83,9 +91,9 @@ def Adellian_Installer(Configuration: dict) -> None:
 		]
 	}"
 	"""
-	def Display_Step() -> str: Steps_Current +=1; return f"[{Steps_Current}/{Steps_Total}]";
-	Steps_Current: int = 0;
+	global Steps_Current;
 	Steps_Total: int = 11 + len(Configuration["Scripts"]);
+	def Display_Step() -> str: Steps_Current +=1; return f"[{Steps_Current}/{Steps_Total}]";
 
 	Log.Warning("=== INSTALLING ADELLIAN ===");
 	Log.Info(f"{Display_Step()} Downloading the Adellian RootFS Repository...");

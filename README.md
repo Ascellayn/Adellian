@@ -17,6 +17,7 @@ This is a collection of Shell scripts destined to quickly set-up a Debian SID/Ex
 > Running these scripts outside of a brand new fresh installation of **SPECIFICALLY DEBIAN UNSTABLE/SID** is beyond discouraged.  
 > You may get a [Debian SID ISO here](https://d-i.debian.org/daily-images/amd64/daily/netboot/), just make sure to select "SID" when prompted for which Debian Branch to install and make sure to **deselect ALL additional software** when prompted.  
 > We recommend also for minimalism's sake to select the "Targeted" option when prompted about drivers.
+> DO NOT CREATE AN USER ACCOUNT DURING THE DEBIAN INSTALL: Adellian needs to create the user itself in order to properly set itself up.
 
 <br>
 

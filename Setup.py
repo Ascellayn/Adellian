@@ -5,7 +5,8 @@ import shutil, os;
 # Might wanna push this one to TSN_Abstracter
 def Shell_Run(Command: str) -> subprocess.CompletedProcess:
 	Process: subprocess.CompletedProcess = subprocess.run(Command, shell=True, stdout=subprocess.PIPE, text=True);
-	Log.Stateless(Process.stdout.replace("\n", ""));
+	for Line in iter(Process.stdout.readline, ""):
+		Log.Stateless(Line);
 	Log.Debug(f"Process exited with code {Process.returncode}");
 	return Process;
 

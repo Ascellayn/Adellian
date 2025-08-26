@@ -80,7 +80,7 @@ def New_Account() -> None:
 def Hyprllian() -> None:
 	global Configuration;
 	Configuration["Branch"] = "Hyprllian";
-	#Configuration["Scripts"].append("Hyprllian/HyprInit.sh");
+	Configuration["Scripts"].append("Hyprllian/HyprInit.sh");
 
 
 def Bootstrap() -> None:

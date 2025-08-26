@@ -90,7 +90,7 @@ ENDL
 LOG "[Bootstrap] - Installing Essential CLI Tools...\n"
 {
 	apt install -y --no-install-recommends	\
-	python3 wget git
+	python3-minimal wget git
 } &>> ${LOG_FILE}
 
 

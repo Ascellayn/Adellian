@@ -1,47 +1,53 @@
-![](https://github.com/Ascellayn/Adellian/blob/main/Ressources/AdellianBanner-256px.png?raw=true)  
+<p align="center">
+  <img src="https://github.com/Ascellayn/Adellian/blob/main/Ressources/AdellianBanner-256px.png?raw=true"/>
+</p>
+<h1 align=center>
+  <a href="https://www.pixiv.net/en/artworks/118554698">The palace for a certain Princess.
+</h1>
+
+<br>
+
 ### Linux the Ascellayn way. A set of scripts to set up a Debian SID/Experimental environement that prioritizes performance and minimalism.  
+This is a collection of Shell scripts destined to quickly set-up a Debian SID/Experimental Computer, whenever it's for daily driving, as a secondary machine, or a server oriented environment.
 
 <br>
 
-## This is currently incomplete, do NOT run any of the scripts unless you're stupid.
-This is a collection of Shell scripts destined to quickly set-up a Debian SID/Experimental Computer, whenever it's for daily drivers, as a secondary machine, or a server oriented environment.
+> [!WARNING]
+> ### **Adellian is designed exclusively for Debian Experimental.**
+> Running these scripts outside of a brand new fresh installation of **SPECIFICALLY DEBIAN UNSTABLE/SID** is beyond discouraged.  
+> You may get a [Debian SID ISO here](https://d-i.debian.org/daily-images/amd64/daily/netboot/), just make sure to select "SID" when prompted for which Debian Branch to install and make sure to **deselect ALL additional software** when prompted.  
+> We recommend also for minimalism's sake to select the "Targeted" option when prompted about drivers.
 
 <br>
 
-## This collection of scripts is VERY personal
-I won't care if you think this is an outrageously stupid way to use Linux. This is how I do it. If you're not happy, use Ubuntu or do the same shit this repository does but your way with Debian SID or Arch Linux.
-**RUN AT YOUR OWN RISK: I WILL NOT PROVIDE ANY SUPPORT WITH THIS. FEEL FREE TO COMPLAIN AS MUCH AS YOU WANT, YOU'VE BEEN WARNED.**
+# Adellian Eco-System
+| Adellian Repository | Description |
+|-|-|
+| Installer (This repository) | Scripts used to configure and install Adellian. |
+| [RootFS](https://github.com/Ascellayn/Adellian_RootFS) | The files used to configure the Adellian Environement. |
+| [Fluent](https://github.com/Ascellayn/Adellian_Fluent) | A fork of the Fluent GTK Theme built specifically for the "Hyprllian" Adellian Branch. |
 
-### DO NOT USE THESE SCRIPTS ON ANY OTHER OPERATING SYSTEM BUT A CLEAN DEBIAN UNSTABLE/SID INSTALL
-These scripts COULD work on other distributions but I wouldn't recommend it. Also don't run this on an already established system, this does significant changes to your OS. [You may get a clean mini Debian ISO here](https://d-i.debian.org/daily-images/amd64/daily/netboot/), make sure to disable all optional packages (ie: XFCE4, Network tools etc), Adellian is formed from the most minimal clean Debian install you possibly can have.
-
-<br>
-
-## Branches
-The current branch being worked on is: WAYLAND_DE
-
-## WAYLAND_DE Screenshot here
-- WAYLAND_DE: TBD (Now serviceable)
-  - This branch is what I'd use as a daily driver on a Wayland compatible machine.
-  - Uses Hyprland as the Desktop Environment.
-  - Dark theme for the Root User, Light mode otherwise.
-  - Terminal Emulator is Foot.
-  - File Manager is Thunar.
-  - VSCode Insiders and Nano are the file editors.
-  - Uses Tofi for application searching and waybar as the "title bar".
-  - Builds automatically and installs the Fluent GTK Dark/Red & Light/Pink Theme.
-  - Automatically downloads and unpacks Tweetmoji and Apple SF Fonts.
-  - Contains script to automatically download NVIDIA Drivers from NVIDIA's own repository.
+| Adellian Application | Description |
+|-|-|
+| [SSHMan](https://github.com/Ascellayn/Adellian_SSHMan) | A TSNA-Based Python Terminal application used to connect to SSH Servers. |
 
 <br>
 
-### Usage
-- Download and run Install_Minimal.sh from the WAYLAND_DE folder
-- You can also download and run NoVideo.sh from the same folder to automatically download the cuda-drivers from NVIDIA's repository. (Not using nvidia-open as cuda-drivers seems to work just fine despite being on Wayland)
+# Adellian is unfinished and is currently under a massive change.
+> [!CAUTION]
+> Don't run any of these scripts right now unless you're catastrophically stupid. No seriously come back later.
 
 <br>
 
+<br>
+<br>
 
-# Adellian Applications
-Adellian comes with several terminal applications aimed to replace partially several bloated GUI apps, here is the full list of mini applications made specifically for this collection of script.
-- [sshman](https://github.com/SiriusBYT/TBD_Name/tree/main/WAYLAND_DE/rootfs/System/Applications/adellian_sshman), a Python CLI tool to mount via sshfs, or simply connect to SSH servers, aimed to replace heavier applications such as Termius.  
+## Adellian Branches
+
+### Hyprllian (Wayland; Designed for Daily Driving)
+[TBD DESCRIPTION & SCREENSHOTS]
+
+<br>
+
+### Siriollian (TTY; Designed for TSN's Servers)
+[TBD DESCRIPTION & SCREENSHOTS]

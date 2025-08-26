@@ -29,6 +29,7 @@ This is a collection of Shell scripts destined to quickly set-up a Debian SID/Ex
 
 | Adellian Application | Description |
 |-|-|
+| [Manager](https://github.com/Ascellayn/Adellian_Manager) | A TSNA-Based Python tool to manage/update your Adellian Installation. |
 | [SSHMan](https://github.com/Ascellayn/Adellian_SSHMan) | A TSNA-Based Python Terminal application used to connect to SSH Servers. |
 
 <br>

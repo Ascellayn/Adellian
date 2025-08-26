@@ -61,7 +61,7 @@ def DownloadRepo_RootFS() -> None:
 # RootFS Installers
 def Install_RootFS(Branch: str) -> None:
 	#Log.Info(f"Installing Adellian's {Branch} RootFS...");
-	Process: subprocess.CompletedProcess = Shell_Run(f"cp -R -v /System/Adellian/RootFS/{Branch}_RootFS/* /");
+	Process: subprocess.CompletedProcess = Shell_Run(f"cp -R /System/Adellian/RootFS/{Branch}_RootFS/* /");
 	if (Process.returncode == 0): Log.Fetch_ALog().OK(); return;
 
 	Log.Fetch_ALog().ERROR(f"Process exited with code {Process.returncode}");
@@ -144,7 +144,7 @@ def Adellian_Installer() -> None:
 		Log.Fetch_ALog().OK();
 
 	Log.Info(f"{Display_Step()} Copying UserFS for \"{Configuration["Username"]}\"...");
-	Shell_Run_Critical(f"cp -R -v /root/.config /home/{Configuration["Username"]}");
+	Shell_Run_Critical(f"cp -R /root/.config /home/{Configuration["Username"]}");
 	Log.Fetch_ALog().OK();
 
 	Log.Info(f"{Display_Step()} Installing TSN Abstracter for \"{Configuration["Username"]}\"...");

@@ -176,7 +176,7 @@ def Adellian_Installer() -> None:
 # Ignition
 if (__name__ == '__main__'):
 	TSN_Abstracter.Require_Version((3,3,0));
-	Config.Logger.Print_Level = 15;
+	Config.Logger.Print_Level = 20; Config.Logger.File_Level = 15;
 	Config.Logger.Display_Date = False;
 	Config.Logger.File = True;
 	Log.Delete();

@@ -6,7 +6,7 @@ import shutil, os;
 def Shell_Run(Command: str) -> subprocess.CompletedProcess:
 	Process: subprocess.CompletedProcess = subprocess.Popen(Command, shell=True, stdout=subprocess.PIPE, universal_newlines=True);
 	for Line in iter(Process.stdout.readline, ""):
-		Log.Stateless(Line);
+		Log.Stateless(Line.replace("\n", ""));
 	Process.stdout.close();
 	Return_Code = Process.wait();
 	Log.Debug(f"Process exited with code {Process.returncode}");
@@ -15,7 +15,7 @@ def Shell_Run(Command: str) -> subprocess.CompletedProcess:
 def Shell_Run_Critical(Command: str) -> None:
 	Process: subprocess.CompletedProcess = Shell_Run(Command);
 	if (Process.returncode == 0): return;
-	Log.Critical(f"An error occurred while running an Adellian Installation Script. The installer will now exit.\n[ERROR]: {Process.stdout}");
+	Log.Critical(f"An error occurred while running an Adellian Installation Script. The installer will now exit.");
 	exit();
 
 Adellian_Logo: str = \
@@ -59,7 +59,7 @@ def Install_RootFS(Branch: str) -> None:
 	if (Process.returncode == 0): Log.Fetch_ALog().OK(); return;
 
 	Log.Fetch_ALog().ERROR(f"Process exited with code {Process.returncode}");
-	Log.Critical(f"An error occurred while installing the {Branch} Adellian RootFS. The installer will now exit.\n[ERROR]: {Process.stdout}");
+	Log.Critical(f"An error occurred while installing the {Branch} Adellian RootFS. The installer will now exit.");
 	exit();
 
 

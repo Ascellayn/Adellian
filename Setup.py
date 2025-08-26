@@ -170,7 +170,7 @@ def Adellian_Installer() -> None:
 	shutil.rmtree("/System/Adellian/Installer");
 	Log.Fetch_ALog().OK();
 
-	Log.Info("\n\nAdellian has finished installing. Please reboot your computer. There may be left over files such as the Adellian Bootstrap Script of which you will have to delete.");
+	Log.Stateless("\n\nAdellian has finished installing. Please reboot your computer. There may be left over files such as the Adellian Bootstrap Script of which you will have to delete.");
 	exit();
 
 # Ignition

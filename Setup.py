@@ -2,6 +2,12 @@ from TSN_Abstracter import *;
 import subprocess;
 import shutil, os;
 
+Configuration: dict = {
+	"Branch": "Universal",
+	"Username": "adellian",
+	"Scripts": []
+};
+
 # Might wanna push this one to TSN_Abstracter
 def Shell_Run(Command: str) -> subprocess.CompletedProcess:
 	Process: subprocess.CompletedProcess = subprocess.Popen(Command, shell=True, stdout=subprocess.PIPE, universal_newlines=True);
@@ -38,7 +44,7 @@ Adellian_Logo: str = \
                         :-                                                                            
 """
 
-# Internal Tools
+# Internal Tools [Downloading/Install]
 def DownloadRepo_RootFS() -> None:
 	if (File.Exists("/System/Adellian/RootFS")):
 		Log.Warning(f"The Adellian RootFS Repository was left undeleted from a previous installation attempt.");
@@ -63,17 +69,26 @@ def Install_RootFS(Branch: str) -> None:
 	exit();
 
 
+# Internal Tools [Configuration]
+def New_Account() -> None:
+	global Configuration;
+	Log.Stateless("Please specify the name of your user account: ");
+	Configuration["Username"] = input("");
+	Shell_Run_Critical(f"adduser {Configuration['Username']}");
+
+# Per-Branch Configuration
+def Hyprllian() -> None:
+	global Configuration;
+	Configuration["Branch"] = "Hyprllian";
+	Configuration["Scripts"].append("Hyprllian/HyprInit.sh");
+
+
 def Bootstrap() -> None:
 	Log.Stateless(Adellian_Logo);
 	Log.Info("Adellian Installer v250824_DEV");
-	Shell_Run_Critical("adduser ascellayn");
-	Adellian_Installer({
-		"Branch": "Hyprllian",
-		"Username": "ascellayn",
-		"Scripts": [
-			"/System/Adellian/Installer/Install-Scripts/Hyprllian/HyprInit.sh"
-		]
-	});
+	New_Account();
+	Hyprllian();
+	Adellian_Installer();
 
 
 # Installation Process
@@ -89,18 +104,19 @@ def Display_Step() -> str:
 	Steps_Current +=1;
 	return f"[{Steps_Current}/{Steps_Total}]";
 
-def Adellian_Installer(Configuration: dict) -> None:
-	""" This installs Adellian according to the specified Dictionary.
+def Adellian_Installer() -> None:
+	""" This installs Adellian according to the Configuration Dictionary.
 	Example dictionary:
 	>>> "{
 		Branch: "Hyprllian",
 		Username: "ascellayn",
 		Scripts: [
-			"/System/Adellian/Installer/Install-Scripts/Hyprllian/HyprInit.sh",
-			"/System/Adellian/Installer/Install-Scripts/Universal/NoVideo.sh"
+			"Hyprllian/HyprInit.sh",
+			"Universal/NoVideo.sh"
 		]
 	}"
 	"""
+	Scripts_Path: str = "/System/Adellian/Installer/Install-Scripts/";
 	global Steps_Total;
 	Steps_Total += len(Configuration["Scripts"]);
 
@@ -115,17 +131,16 @@ def Adellian_Installer(Configuration: dict) -> None:
 	Install_RootFS(Configuration["Branch"]); Log.Fetch_ALog().OK();
 
 	Log.Info(f"{Display_Step()} Installing Adellian Base System...");
-	Shell_Run_Critical("/bin/bash /System/Adellian/Installer/Install-Scripts/Universal/Base_Installation.sh");
+	Shell_Run_Critical(f"/bin/bash {Scripts_Path}Universal/Base_Installation.sh");
 	Log.Fetch_ALog().OK();
 
 	Log.Info(f"{Display_Step()} Installing {Configuration['Branch']} Base System...");
-	Shell_Run_Critical(f"/bin/bash /System/Adellian/Installer/Install-Scripts/{Configuration['Branch']}/Base_Installation.sh");
+	Shell_Run_Critical(f"/bin/bash {Scripts_Path}{Configuration['Branch']}/Base_Installation.sh");
 	Log.Fetch_ALog().OK();
 
 	for Script in Configuration["Scripts"]:
-		Script_Name = Script.split("/")[-1];
-		Log.Info(f"\t{Display_Step()} Running Script \"{Script_Name}\"...");
-		Shell_Run_Critical(Script);
+		Log.Info(f"\t{Display_Step()} Running Script \"{Script}\"...");
+		Shell_Run_Critical(f"{Scripts_Path}{Script}");
 		Log.Fetch_ALog().OK();
 
 	Log.Info(f"{Display_Step()} Copying UserFS for \"{Configuration["Username"]}\"...");

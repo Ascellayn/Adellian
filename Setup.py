@@ -144,7 +144,7 @@ def Adellian_Installer() -> None:
 		Log.Fetch_ALog().OK();
 
 	Log.Info(f"{Display_Step()} Copying UserFS for \"{Configuration["Username"]}\"...");
-	Shell_Run_Critical(f"/bin/bash cp -R -v /root/.config /home/{Configuration["Username"]}");
+	Shell_Run_Critical(f"cp -R -v /root/.config /home/{Configuration["Username"]}");
 	Log.Fetch_ALog().OK();
 
 	Log.Info(f"{Display_Step()} Installing TSN Abstracter for \"{Configuration["Username"]}\"...");

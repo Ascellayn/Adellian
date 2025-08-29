@@ -32,6 +32,6 @@ ENDL
 LOG "[Adellian Screenshot] - Installing Adellian Screenshot...\n"
 SEPARATE
 {
-	git clone https://github.com/Ascellayn/Adellian_Screenshot
+	git clone https://github.com/Ascellayn/Adellian_Screenshot Screenshot
 } &>> ${LOG_FILE}
 

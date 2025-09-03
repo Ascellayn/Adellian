@@ -17,6 +17,7 @@ ENDL() {
 	printf "\n" >> ${LOG_FILE}
 }
 
+mkdir -p /System/Applications
 cd /System/Applications
 
 ENDL

@@ -23,7 +23,7 @@ LOG "[Universal] - Installing Base System...\n"
 SEPARATE
 {
 	apt install --no-install-recommends -y	\
-	htop
+	htop 7zip
 } &>> ${LOG_FILE}
 
 

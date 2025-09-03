@@ -26,7 +26,7 @@ LOG "[Hyprllian] - Installing Base System...\n"
 SEPARATE
 {
 	apt install --no-install-recommends -y	\
-	thunar
+	swaybg
 } &>> ${LOG_FILE}
 
 

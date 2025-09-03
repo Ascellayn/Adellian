@@ -112,6 +112,9 @@ def Adellian_Installer() -> None:
 		Username: "ascellayn",
 		Scripts: [
 			"Hyprllian/HyprInit.sh",
+			"Applications/Screenshot.sh",
+			"Universal/Fonts.sh",
+			"Universal/hasRootFS/Firefox.sh",
 			"Universal/Thunar.sh",
 			"Universal/Driver_NoVideo.sh"
 		]

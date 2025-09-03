@@ -96,3 +96,13 @@ opengl	{
 " > /System/Configuration/User/Nvidia.conf
 	} &>> ${LOG_FILE}
 fi
+
+ENDL
+LOG "[NoVideo] - Fixing Precompiled Shaders fuckery...\n"
+SEPARATE
+{
+	printf "\n# This fixes fuckery related to precompiling shaders on Nvidia
+__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1" >> /etc/environment
+} &>> ${LOG_FILE}
+# I play THE FINALS a shit ton. The precompiled shaders sometimes fuck off and delete themselves when they shouldn't, resulting in painfully long loading times.
+# EVERY TIME. THE GAME. FUCKING RESTARTS. So this is why we do this.

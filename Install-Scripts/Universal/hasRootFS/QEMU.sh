@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Base Installation Script for Adellian's Server Branch
 SEPARATOR=$(printf "%-$(tput cols)s\n" "" | tr " " "=")
 LOG_FILE="/System/Logs/Adellian_Installer/Universal_QEMU.log"
 

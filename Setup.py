@@ -81,11 +81,17 @@ def Hyprllian() -> None:
 	global Configuration;
 	Configuration["Branch"] = "Hyprllian";
 	Configuration["Scripts"].append("Hyprllian/HyprInit.sh");
+	Configuration["Scripts"].append("Applications/Screenshot.sh");
+	Configuration["Scripts"].append("Universal/Fonts.sh");
+	Configuration["Scripts"].append("Universal/Thunar.sh");
+
+	# not part of the base hyprllian install, to be removed after release
+	Configuration["Scripts"].append("Universal/hasRootFS/Firefox.sh");
 
 
 def Bootstrap() -> None:
 	Log.Stateless(Adellian_Logo);
-	Log.Info("Adellian Installer v250824_DEV");
+	Log.Info("Adellian Installer v250903_DEV");
 	New_Account();
 	Hyprllian();
 	Adellian_Installer();
@@ -107,10 +113,11 @@ def Display_Step() -> str:
 def Adellian_Installer() -> None:
 	""" This installs Adellian according to the Configuration Dictionary.
 	Example dictionary:
-	>>> "{
-		Branch: "Hyprllian",
-		Username: "ascellayn",
-		Scripts: [
+	>>> '''
+	{
+		"Branch": "Hyprllian",
+		"Username": "ascellayn",
+		"Scripts": [
 			"Hyprllian/HyprInit.sh",
 			"Applications/Screenshot.sh",
 			"Universal/Fonts.sh",
@@ -118,7 +125,8 @@ def Adellian_Installer() -> None:
 			"Universal/Thunar.sh",
 			"Universal/Driver_NoVideo.sh"
 		]
-	}"
+	}
+	'''
 	"""
 	Scripts_Path: str = "/System/Adellian/Installer/Install-Scripts/";
 	global Steps_Total;
@@ -146,6 +154,11 @@ def Adellian_Installer() -> None:
 		Log.Info(f"\t{Display_Step()} Running Script \"{Script}\"...");
 		Shell_Run_Critical(f"{Scripts_Path}{Script} {Configuration['Branch']} {Configuration['Username']}");
 		Log.Fetch_ALog().OK();
+		Splitted = Script.split("/");
+		if (Splitted[1] == "hasRootFS"):
+			Log.Info(f"\t{Display_Step()} Installing RootFS for \"{Script}\"...");
+			Shell_Run_Critical(f"cp -R /System/Adellian/RootFS/{Splitted[0]}/{Splitted[2][:-3]}/* /");
+			Log.Fetch_ALog().OK();
 
 	Log.Info(f"{Display_Step()} Copying UserFS for \"{Configuration["Username"]}\"...");
 	Shell_Run_Critical(f"cp -R /root/.config /home/{Configuration["Username"]}");

@@ -18,7 +18,6 @@ ENDL() {
 
 mkdir -p /System/Temp
 cd /System/Temp
-mkdir 
 
 ENDL
 LOG "[Fonts] - Downloading and installing Basic Fonts...\n"

@@ -24,7 +24,7 @@ LOG "[Thunar] - Installing Thunar...\n"
 SEPARATE
 {
 	apt install --no-install-recommends -y	\
-	thunar tumbler-common librsvg2-common
+	thunar tumbler-common librsvg2-common ffmpegthumbnailer
 } &>> ${LOG_FILE}
 
 

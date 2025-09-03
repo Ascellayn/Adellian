@@ -141,7 +141,7 @@ def Adellian_Installer() -> None:
 
 	for Script in Configuration["Scripts"]:
 		Log.Info(f"\t{Display_Step()} Running Script \"{Script}\"...");
-		Shell_Run_Critical(f"{Scripts_Path}{Script}");
+		Shell_Run_Critical(f"{Scripts_Path}{Script} {Configuration['Branch']} {Configuration['Username']}");
 		Log.Fetch_ALog().OK();
 
 	Log.Info(f"{Display_Step()} Copying UserFS for \"{Configuration["Username"]}\"...");

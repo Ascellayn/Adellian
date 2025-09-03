@@ -87,7 +87,7 @@ def Hyprllian() -> None:
 	Configuration["Scripts"].append("Universal/Wallpapers.sh");
 
 	# not part of the base hyprllian install, to be removed after release
-	Configuration["Scripts"].append("Universal/hasRootFS/Firefox.sh");
+	Configuration["Scripts"].append("Universal/hasRootFS/Firefox_Nightly.sh");
 
 
 def Bootstrap() -> None:

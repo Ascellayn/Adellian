@@ -157,7 +157,7 @@ def Adellian_Installer() -> None:
 		Splitted = Script.split("/");
 		if (Splitted[1] == "hasRootFS"):
 			Log.Info(f"\t{Display_Step()} Installing RootFS for \"{Script}\"...");
-			Shell_Run_Critical(f"cp -R /System/Adellian/RootFS/{Splitted[0]}/{Splitted[2][:-3]}/* /");
+			Shell_Run_Critical(f"cp -R /System/Adellian/RootFS/Application_RootFS/{Splitted[2][:-3]}/* /");
 			Log.Fetch_ALog().OK();
 
 	Log.Info(f"{Display_Step()} Copying UserFS for \"{Configuration["Username"]}\"...");

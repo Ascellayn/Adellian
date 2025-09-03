@@ -106,3 +106,11 @@ __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1" >> /etc/environment
 } &>> ${LOG_FILE}
 # I play THE FINALS a shit ton. The precompiled shaders sometimes fuck off and delete themselves when they shouldn't, resulting in painfully long loading times.
 # EVERY TIME. THE GAME. FUCKING RESTARTS. So this is why we do this.
+
+ENDL
+LOG "[NoVideo] - Fixing Sleep...\n"
+SEPARATE
+{
+	systemctl enable nvidia-resume
+	systemctl enable nvidia-suspend
+} &>> ${LOG_FILE}

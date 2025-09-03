@@ -48,19 +48,19 @@ SEPARATE
 	7z x "SFCompactFonts/SF Compact Fonts.pkg" -y -sdel
 	7z x "SFCompactFonts.pkg" -y -sdel
 	7z x "Payload~" -y -sdel
-	mv -v "Library/Fonts" "/root/tmp/Apple Fonts/SF-Compact"
+	mv -v "Library/Fonts" "Library/Fonts/SF-Compact"
 
 	7z x SF-Pro.dmg -y -sdel
 	7z x "SFProFonts/SF Pro Fonts.pkg" -y -sdel
 	7z x "SFProFonts.pkg" -y -sdel
 	7z x "Payload~" -y -sdel
-	mv -v "Library/Fonts" "/root/tmp/Apple Fonts/SF-Pro"
+	mv -v "Library/Fonts" "Library/Fonts/SF-Pro"
 
 	7z x SF-Mono.dmg -y -sdel
 	7z x "SFMonoFonts/SF Mono Fonts.pkg" -y -sdel
 	7z x "SFMonoFonts.pkg" -y -sdel
 	7z x "Payload~" -y -sdel
-	mv -v "Library/Fonts" "/root/tmp/Apple Fonts/SF-Mono"
+	mv -v "Library/Fonts" "Library/Fonts/SF-Mono"
 
 	tar xf TwitterColorEmoji-SVGinOT-Linux-15.1.0.tar.gz
 } &>> ${LOG_FILE}

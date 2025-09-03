@@ -84,6 +84,7 @@ def Hyprllian() -> None:
 	Configuration["Scripts"].append("Applications/Screenshot.sh");
 	Configuration["Scripts"].append("Universal/Fonts.sh");
 	Configuration["Scripts"].append("Universal/Thunar.sh");
+	Configuration["Scripts"].append("Universal/Wallpapers.sh");
 
 	# not part of the base hyprllian install, to be removed after release
 	Configuration["Scripts"].append("Universal/hasRootFS/Firefox.sh");

@@ -82,6 +82,7 @@ def Hyprllian() -> None:
 	Configuration["Branch"] = "Hyprllian";
 	Configuration["Scripts"].append("Hyprllian/HyprInit.sh");
 	Configuration["Scripts"].append("Applications/Screenshot.sh");
+	Configuration["Scripts"].append("Universal/Adellian_Fluent.sh");
 	Configuration["Scripts"].append("Universal/Fonts.sh");
 	Configuration["Scripts"].append("Universal/Thunar.sh");
 	Configuration["Scripts"].append("Universal/hasRootFS/Foot.sh");

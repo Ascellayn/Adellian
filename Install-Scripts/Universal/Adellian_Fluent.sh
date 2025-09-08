@@ -46,7 +46,7 @@ SEPARATE
 {
 	cd Fluent-icon-theme
 	./install.sh pink
-	./install.sh purple
+	./install.sh red
 } &>> ${LOG_FILE}
 
 

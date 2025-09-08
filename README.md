@@ -48,7 +48,11 @@ This is a collection of Shell scripts destined to quickly set-up a Debian SID/Ex
 ## Adellian Branches
 
 ### Hyprllian (Wayland; Designed for Daily Driving)
-[TBD DESCRIPTION & SCREENSHOTS]
+<p align="center">
+  <img src="https://github.com/Ascellayn/Adellian/blob/main/Ressources/Hyprllian_Light.png?raw=true"/>
+  <img src="https://github.com/Ascellayn/Adellian/blob/main/Ressources/Hyprllian_Dark.png?raw=true"/>
+</p>
+[TBD DESCRIPTION]
 
 <br>
 

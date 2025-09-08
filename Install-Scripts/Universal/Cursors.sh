@@ -28,7 +28,7 @@ ENDL
 LOG "[Cursors] - Installing Cursors...\n"
 SEPARATE
 {
-	tar -xf macOS.tar.xz
+	7z x macOS.tar.xz
 	mv -v macOS /usr/share/icons/
 	mv -v macOS-White /usr/share/icons/
 } &>> ${LOG_FILE}

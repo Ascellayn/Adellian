@@ -84,6 +84,7 @@ def Hyprllian() -> None:
 	Configuration["Scripts"].append("Applications/Screenshot.sh");
 	Configuration["Scripts"].append("Universal/Adellian_Fluent.sh");
 	Configuration["Scripts"].append("Universal/Fonts.sh");
+	Configuration["Scripts"].append("Universal/Cursors.sh");
 	Configuration["Scripts"].append("Universal/Thunar.sh");
 	Configuration["Scripts"].append("Universal/hasRootFS/Sudo.sh");
 	Configuration["Scripts"].append("Universal/hasRootFS/Foot.sh");

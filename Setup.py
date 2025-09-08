@@ -92,7 +92,7 @@ def Hyprllian() -> None:
 
 	# not part of the base hyprllian install, to be removed after release
 	Configuration["Scripts"].append("Universal/hasRootFS/Firefox_Nightly.sh");
-
+	Configuration["Scripts"].append("Universal/hasRootFS/OCP.sh");
 
 def Bootstrap() -> None:
 	Log.Stateless(Adellian_Logo);

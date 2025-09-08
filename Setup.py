@@ -74,7 +74,7 @@ def New_Account() -> None:
 	global Configuration;
 	Log.Stateless("Please specify the name of your user account: ");
 	Configuration["Username"] = input("");
-	Shell_Run_Critical(f"adduser {Configuration['Username']}");
+	subprocess.run(f"adduser {Configuration['Username']}", shell=True);
 
 # Per-Branch Configuration
 def Hyprllian() -> None:
@@ -96,7 +96,7 @@ def Hyprllian() -> None:
 
 def Bootstrap() -> None:
 	Log.Stateless(Adellian_Logo);
-	Log.Info("Adellian Installer v250903_DEV");
+	Log.Info("Adellian Installer | Avalanche (v1.0_Alpha)");
 	New_Account();
 	Hyprllian();
 	Adellian_Installer();

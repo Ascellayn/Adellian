@@ -24,7 +24,7 @@ LOG "[OCP] - Installing Open Cubic Player...\n"
 SEPARATE
 {
 	apt install --no-install-recommends -y	\
-	ocp
+	opencubicplayer
 } &>> ${LOG_FILE}
 
 # RootFS is handled by the Adellian Installer automatically.

@@ -74,7 +74,7 @@ SEPARATE
 	apt install nvidia-open nvidia-driver-libs:i386 nvidia-vaapi-driver -y
 } &>> ${LOG_FILE} # We don't fuck around with NoVideo, so we install all the recommended shit.
 
-if [ADELLIAN_BRANCH == "Hyprllian"]; then
+if [ ADELLIAN_BRANCH == "Hyprllian" ]; then
 	ENDL
 	LOG "[NoVideo] - Editing Hyprllian Config...\n"
 	SEPARATE

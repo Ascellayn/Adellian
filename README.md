@@ -1,3 +1,19 @@
+> [!CAUTION]
+> ### Adellian is entirely broken thanks to `rust-coreutils`/`coreutils-from-uutils`
+> good job debian you entirely nuked both my linux installs
+> 
+> Adellian has always been an "Debian Experimental" AF """distro""" and it finally came to bite me in the butt, there's no way to even reinstall the old GNU coreutils because they broke the `coreutils-from-gnu` package :D  
+> You also can't downgrade the coreutils package if you've already updated to the rust ones as well so good luck :D
+>
+> You can absolutely expect Adellian to be worked on significantly more in the upcoming days because... Well I basically have to reinstall Adellian myself twice. If I reboot my laptop right now I literally don't have any working Linux machine in my hands.
+> They really put the "experimental" in Debian Experimental. I'm very salty.
+>
+> ***There should be a way to freeze the coreutils package to prevent your entire system to nuke itself and Adellian will do that soon enough the moment I'm no longer busy.***
+
+<br><br><br>
+
+<br>
+
 <p align="center">
   <img src="https://github.com/Ascellayn/Adellian/blob/main/Ressources/AdellianBanner-256px.png?raw=true"/>
 </p>

@@ -63,7 +63,34 @@ Pin-Priority: 900
 Package: *
 Pin: release a=unstable
 Pin-Priority: 900
+
+
+
+
+
+# Ban broken coreutils that will explode the system
+Package: coreutils
+Pin: release a=unstable
+Pin-Priority: 9001
+
+
+Package: coreutils-from-uutils
+Pin: release *
+Pin-Priority: -1
+
+Package: coreutils-from-busybox
+Pin: release *
+Pin-Priority: -1
+
+Package: coreutils-from-toybox
+Pin: release *
+Pin-Priority: -1
+
+Package: rust-coreutils
+Pin: release *
+Pin-Priority: -1
 " > /etc/apt/preferences.d/adellian-experimental
+
 
 
 ENDL
